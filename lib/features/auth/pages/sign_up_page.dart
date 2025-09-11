@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -6,10 +7,13 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-
-        ],
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(24.w, 59.h, 24.w, 10.h),
+        child: Column(
+          children: [
+            Text('Create an account'),
+          ],
+        ),
       ),
     );
   }
