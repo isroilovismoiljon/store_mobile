@@ -28,38 +28,45 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
     setState(() {
       String passwordValidText = Validator.validatePassword(text);
-      String fullNameValidText = Validator.validatePassword(text);
-      if (text.isEmpty) {
-        borderColor = const Color(0xFFE6E6E6);
-      }
+      String fullNameValidText = Validator.validateFullName(text);
+      bool emailValidText = Validator.isValidEmail(text);
       if (widget.label == 'Email') {
-        if (Validator.isValidEmail(text)) {
+        if (emailValidText) {
           borderColor = Colors.green;
+          errorMessage = null;
+          fieldIcon = AppIcons.check;
         } else {
           borderColor = const Color(0xFFED1010);
           fieldIcon = AppIcons.warningCircle;
+          isValid = false;
           errorMessage = 'Please enter valid email address';
         }
       } else if (widget.label == 'Password') {
-        if (text.isEmpty) {
-          if (passwordValidText == 'ok') {
-            borderColor = Colors.green;
-          } else {
-            borderColor = const Color(0xFFED1010);
-            fieldIcon = AppIcons.warningCircle;
-            errorMessage = passwordValidText;
-          }
+        if (passwordValidText == 'ok') {
+          borderColor = Colors.green;
+          errorMessage = null;
+          fieldIcon = AppIcons.check;
+        } else {
+          borderColor = const Color(0xFFED1010);
+          fieldIcon = AppIcons.warningCircle;
+          errorMessage = passwordValidText;
+          isValid = false;
         }
       } else if (widget.label == 'Full Name') {
-        if (text.isEmpty) {
-          if (fullNameValidText == 'ok') {
-            borderColor = Colors.green;
-          } else {
-            borderColor = const Color(0xFFED1010);
-            fieldIcon = AppIcons.warningCircle;
-            errorMessage = passwordValidText;
-          }
+        if (fullNameValidText == 'ok') {
+          borderColor = Colors.green;
+          errorMessage = null;
+          fieldIcon = AppIcons.check;
+        } else {
+          borderColor = const Color(0xFFED1010);
+          fieldIcon = AppIcons.warningCircle;
+          errorMessage = passwordValidText;
+          isValid = false;
         }
+      }
+      if (text.isEmpty) {
+        borderColor = const Color(0xFFE6E6E6);
+        errorMessage = null;
       }
     });
   }
@@ -90,34 +97,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         TextField(
           controller: widget.controller,
+          style: TextStyle(color: Colors.black),
           decoration: InputDecoration(
-            suffix: Row(
-              spacing: 5.w,
-              children: [
-                widget.label == 'Password'
-                    ? IconButton(
-                        onPressed: () {
-                          passwordIcon = passwordIcon == AppIcons.eye ? AppIcons.eyeOff : AppIcons.eye;
-                          setState(() {});
-                        },
-                        icon: SvgPicture.asset(passwordIcon),
-                      )
-                    : Text(
-                        '.',
-                        style: TextStyle(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                fieldIcon == null
-                    ? Text(
-                        '.',
-                        style: TextStyle(
-                          color: Colors.transparent,
-                        ),
-                      )
-                    : SvgPicture.asset(fieldIcon!),
-              ],
-            ),
+            suffix: fieldIcon != null && widget.controller.text.isNotEmpty
+                ? SvgPicture.asset(fieldIcon!)
+                : fieldIcon != null && widget.controller.text.isNotEmpty && widget.label == 'Password'
+                ? IconButton(
+                onPressed: (){
+                  passwordIcon = passwordIcon == AppIcons.eye ? AppIcons.eyeOff : AppIcons.eye;
+                },
+                icon: SvgPicture.asset(passwordIcon))
+                : null,
             hintText: widget.hintText,
             hintStyle: TextStyle(
               color: Colors.grey,
@@ -139,9 +129,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           ),
         ),
-        if (isValid)
+        if (!isValid && errorMessage != null)
           Text(
-            'Please enter valid email address',
+            errorMessage!,
             style: TextStyle(
               color: Theme.of(context).colorScheme.error,
               fontSize: 14.sp,

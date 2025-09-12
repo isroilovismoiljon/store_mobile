@@ -25,92 +25,95 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(24.w, 59.h, 24.w, 10.h),
-        child: Column(
-          spacing: 24.h,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              children: [
-                Text(
-                  'Create an account',
-                  style: TextStyle(
-                    fontSize: 32.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Text(
-                  'Let’s create your account.',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-            CustomTextField(
-              label: 'Full Name',
-              hintText: "Enter your full name",
-              controller: fullNameController,
-            ),
-            CustomTextField(
-              label: 'Email',
-              hintText: "Enter your email address",
-              controller: emailController,
-            ),
-            CustomTextField(
-              label: 'Password',
-              hintText: "Enter your password",
-              controller: passwordController,
-            ),
-            RichText(
-              text: TextSpan(
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 24.h,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextSpan(text: "By signing up you agree to our "),
-                  TextSpan(
-                    text: "Terms",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
+                  Text(
+                    'Create an account',
+                    style: TextStyle(
+                      fontSize: 32.sp,
+                      fontWeight: FontWeight.w500,
                     ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        // Terms bosilganda
-                        print("Terms clicked");
-                      },
                   ),
-                  const TextSpan(text: ", "),
-                  TextSpan(
-                    text: "Privacy Policy",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
+                  Text(
+                    'Let’s create your account.',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
                     ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        // Privacy Policy bosilganda
-                        print("Privacy clicked");
-                      },
-                  ),
-                  const TextSpan(text: ", and "),
-                  TextSpan(
-                    text: "Cookie Use",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        print("Cookie clicked");
-                      },
                   ),
                 ],
               ),
-            ),
-          ],
+              CustomTextField(
+                label: 'Full Name',
+                hintText: "Enter your full name",
+                controller: fullNameController,
+              ),
+              CustomTextField(
+                label: 'Email',
+                hintText: "Enter your email address",
+                controller: emailController,
+              ),
+              CustomTextField(
+                label: 'Password',
+                hintText: "Enter your password",
+                controller: passwordController,
+              ),
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                  children: [
+                    TextSpan(text: "By signing up you agree to our "),
+                    TextSpan(
+                      text: "Terms",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Terms bosilganda
+                          print("Terms clicked");
+                        },
+                    ),
+                    const TextSpan(text: ", "),
+                    TextSpan(
+                      text: "Privacy Policy",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Privacy Policy bosilganda
+                          print("Privacy clicked");
+                        },
+                    ),
+                    const TextSpan(text: ", and "),
+                    TextSpan(
+                      text: "Cookie Use",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          print("Cookie clicked");
+                        },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
