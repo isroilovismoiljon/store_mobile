@@ -70,8 +70,9 @@ class _SignUpPageState extends State<SignUpPage> {
               SignUpRichText(),
               CustomButton(
                 title: 'Create an Account',
-                onPressed: () {
-                  context.go(Routes.login);
+                onPressed: () {isValidFullName && isValidEmail && isValidPassword
+                    ? context.go(Routes.login)
+                : null;
                 },
                 buttonColor: isValidFullName && isValidEmail && isValidPassword
                     ? Colors.black

@@ -23,8 +23,6 @@ class SignUpRichText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // Terms bosilganda
-                print("Terms clicked");
               },
           ),
           const TextSpan(text: ", "),
@@ -36,8 +34,6 @@ class SignUpRichText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // Privacy Policy bosilganda
-                print("Privacy clicked");
               },
           ),
           const TextSpan(text: ", and "),
@@ -49,7 +45,6 @@ class SignUpRichText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                print("Cookie clicked");
               },
           ),
         ],

@@ -1,12 +1,7 @@
-import 'package:store_mobile/core/imports.dart';
-import 'package:store_mobile/core/routing/routes.dart';
-import 'package:store_mobile/features/auth/pages/login_page.dart';
-import 'package:store_mobile/features/auth/pages/sign_up_page.dart';
-import 'package:store_mobile/features/home/pages/home_page.dart';
-import 'package:store_mobile/features/onboarding/pages/splash_page.dart';
+import '../../../core/imports.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: Routes.signUp,
+  initialLocation: Routes.forgotPassword,
   routes: <RouteBase>[
     GoRoute(path: Routes.home,
     builder: (context, state) => HomePage(),
@@ -20,5 +15,20 @@ GoRouter router = GoRouter(
     GoRoute(path: Routes.login,
     builder: (context, state) => LoginPage(),
     ),
+    ShellRoute(
+        builder: (context, state, child) {
+          return ChangeNotifierProvider(
+            create: (_) => ForgotPasswordViewModel(),
+            child: child,
+          );
+        },
+        routes: [
+      GoRoute(path: Routes.forgotPassword,
+        builder: (context, state) => ForgotPasswordPage(),
+      ),
+      GoRoute(path: Routes.enterOtp,
+        builder: (context, state) => EnterOtpPage(),
+      ),
+    ]),
   ],
 );

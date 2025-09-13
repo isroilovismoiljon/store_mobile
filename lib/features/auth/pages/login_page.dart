@@ -11,7 +11,6 @@ class _LoginPageState extends State<LoginPage> {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  bool isValidFullName = false;
   bool isValidEmail = false;
   bool isValidPassword = false;
 
@@ -54,13 +53,14 @@ class _LoginPageState extends State<LoginPage> {
                   setState(() {});
                 },
               ),
-              SignUpRichText(),
+              LoginRichText(),
               CustomButton(
                 title: 'Login',
-                onPressed: () {
-                  context.go(Routes.home);
+                onPressed: () {isValidEmail && isValidPassword
+                    ? context.go(Routes.forgotPassword)
+                    : null;
                 },
-                buttonColor: isValidFullName && isValidEmail && isValidPassword
+                buttonColor: isValidEmail && isValidPassword
                     ? Colors.black
                     : Theme.of(context).colorScheme.secondary,
               ),
@@ -83,8 +83,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 150.h,),
               BottomRichText(
-                firstText: "Already have an account? ",
-                secondText: "Log In", routePage: Routes.signUp,
+                firstText: "Don’t have an account? ",
+                secondText: "Join", routePage: Routes.signUp,
               ),
             ],
           ),
