@@ -1,4 +1,4 @@
-import '../../../core/core.dart';
+import '../../../../core/imports.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -6,11 +6,13 @@ class CustomTextField extends StatefulWidget {
     required this.label,
     required this.hintText,
     required this.controller,
+    required this.onValidChanged,
   });
 
   final String label;
   final String hintText;
   final TextEditingController controller;
+  final ValueChanged<bool> onValidChanged;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -21,9 +23,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
   String? errorMessage;
   Color borderColor = const Color(0xFFE6E6E6);
   String? fieldIcon;
-  String passwordIcon = AppIcons.eye;
+  String passwordIcon = AppIcons.eyeOff;
 
-  void _validate() {
+  void _validate(String value) {
     final text = widget.controller.text;
 
     setState(() {
@@ -34,7 +36,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (emailValidText) {
           borderColor = Colors.green;
           errorMessage = null;
-          fieldIcon = AppIcons.check;
+          fieldIcon = AppIcons.correct;
+          isValid = true;
         } else {
           borderColor = const Color(0xFFED1010);
           fieldIcon = AppIcons.warningCircle;
@@ -45,7 +48,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (passwordValidText == 'ok') {
           borderColor = Colors.green;
           errorMessage = null;
-          fieldIcon = AppIcons.check;
+          fieldIcon = AppIcons.correct;
+          isValid = true;
         } else {
           borderColor = const Color(0xFFED1010);
           fieldIcon = AppIcons.warningCircle;
@@ -56,11 +60,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (fullNameValidText == 'ok') {
           borderColor = Colors.green;
           errorMessage = null;
-          fieldIcon = AppIcons.check;
+          fieldIcon = AppIcons.correct;
+          isValid = true;
         } else {
           borderColor = const Color(0xFFED1010);
           fieldIcon = AppIcons.warningCircle;
-          errorMessage = passwordValidText;
+          errorMessage = fullNameValidText;
           isValid = false;
         }
       }
@@ -69,19 +74,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
         errorMessage = null;
       }
     });
+    widget.onValidChanged(isValid);
   }
 
-  @override
-  void initState() {
-    super.initState();
-    widget.controller.addListener(_validate);
-  }
-
-  @override
-  void dispose() {
-    widget.controller.removeListener(_validate);
-    super.dispose();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   widget.controller.addListener(_validate);
+  // }
+  //
+  // @override
+  // void dispose() {
+  //   widget.controller.removeListener(_validate);
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -97,16 +103,27 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         TextField(
           controller: widget.controller,
+          onChanged: _validate,
           style: TextStyle(color: Colors.black),
+          obscureText: widget.label != 'Password' ? false : (passwordIcon == AppIcons.eyeOff ? true : false),
           decoration: InputDecoration(
-            suffix: fieldIcon != null && widget.controller.text.isNotEmpty
-                ? SvgPicture.asset(fieldIcon!)
-                : fieldIcon != null && widget.controller.text.isNotEmpty && widget.label == 'Password'
+            constraints: BoxConstraints(maxHeight: 52.h),
+            suffixIcon: fieldIcon != null && widget.controller.text.isNotEmpty
                 ? IconButton(
-                onPressed: (){
-                  passwordIcon = passwordIcon == AppIcons.eye ? AppIcons.eyeOff : AppIcons.eye;
-                },
-                icon: SvgPicture.asset(passwordIcon))
+                    onPressed: () {},
+                    padding: EdgeInsets.zero,
+                    // constraints: BoxConstraints(maxWidth: 24.w, maxHeight: 24.h),
+                    iconSize: 24,
+                    icon: SvgPicture.asset(fieldIcon!),
+                  )
+                : widget.controller.text.isEmpty && widget.label == 'Password'
+                ? IconButton(
+                    onPressed: () {
+                      passwordIcon = passwordIcon == AppIcons.eye ? AppIcons.eyeOff : AppIcons.eye;
+                      setState(() {});
+                    },
+                    icon: SvgPicture.asset(passwordIcon),
+                  )
                 : null,
             hintText: widget.hintText,
             hintStyle: TextStyle(

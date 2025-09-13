@@ -1,4 +1,4 @@
-import '../../../core/core.dart';
+import '../../../core/imports.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

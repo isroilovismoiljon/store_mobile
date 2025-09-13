@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Validator {
 
   static bool isValidEmail(String text) {
-    final emailRegex = RegExp(r'^[\w\.-]+@[\w\.-]+\.\w+$');
+    final emailRegex = RegExp(r'^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$');
     return emailRegex.hasMatch(text);
   }
 

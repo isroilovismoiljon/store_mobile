@@ -1,5 +1,6 @@
-import 'package:store_mobile/core/core.dart';
+import 'package:store_mobile/core/imports.dart';
 import 'package:store_mobile/core/routing/routes.dart';
+import 'package:store_mobile/features/auth/pages/login_page.dart';
 import 'package:store_mobile/features/auth/pages/sign_up_page.dart';
 import 'package:store_mobile/features/home/pages/home_page.dart';
 import 'package:store_mobile/features/onboarding/pages/splash_page.dart';
@@ -15,6 +16,9 @@ GoRouter router = GoRouter(
     ),
     GoRoute(path: Routes.signUp,
     builder: (context, state) => SignUpPage(),
+    ),
+    GoRoute(path: Routes.login,
+    builder: (context, state) => LoginPage(),
     ),
   ],
 );

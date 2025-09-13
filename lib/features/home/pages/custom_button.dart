@@ -1,1 +1,1 @@
-import '../../../core/core.dart';
+import '../../../core/imports.dart';

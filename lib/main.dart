@@ -1,4 +1,4 @@
-import 'package:store_mobile/core/core.dart';
+import 'package:store_mobile/core/imports.dart';
 
 import 'features/common/managers/theme_view_model.dart';
 

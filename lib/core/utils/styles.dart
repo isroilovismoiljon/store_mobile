@@ -1,4 +1,4 @@
-import '../core.dart';
+import '../imports.dart';
 
 class AppStyles{
   static TextStyle s32w500onSurface = TextStyle(

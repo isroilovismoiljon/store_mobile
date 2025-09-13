@@ -1,16 +1,14 @@
-
-
 import '../../../core/imports.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  final fullNameController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool isValidFullName = false;
@@ -19,12 +17,10 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void dispose() {
-    fullNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,17 +33,8 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PageTopText(
-                title: 'Create an account',
-                subTitle: 'Let’s create your account.',
-              ),
-              CustomTextField(
-                label: 'Full Name',
-                hintText: "Enter your full name",
-                controller: fullNameController,
-                onValidChanged: (bool value) {
-                  isValidFullName = value;
-                  setState(() {});
-                },
+                title: 'Login to your account',
+                subTitle: 'It’s great to see you again.',
               ),
               CustomTextField(
                 label: 'Email',
@@ -69,9 +56,9 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SignUpRichText(),
               CustomButton(
-                title: 'Create an Account',
+                title: 'Login',
                 onPressed: () {
-                  context.go(Routes.login);
+                  context.go(Routes.home);
                 },
                 buttonColor: isValidFullName && isValidEmail && isValidPassword
                     ? Colors.black
@@ -79,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               OrWithDivider(),
               CustomButton(
-                title: 'Sign Up with Google',
+                title: 'Login with Google',
                 onPressed: () {},
                 buttonColor: Theme.of(context).colorScheme.onPrimary,
                 textColor: Theme.of(context).colorScheme.primary,
@@ -87,17 +74,17 @@ class _SignUpPageState extends State<SignUpPage> {
                 isRightIcon: false,
               ),
               CustomButton(
-                title: 'Sign Up with Facebook',
+                title: 'Login with Facebook',
                 onPressed: () {},
                 buttonColor: Color(0xFF1877F2),
                 textColor: Theme.of(context).colorScheme.onPrimary,
                 icon: AppIcons.logoFacebook,
                 isRightIcon: false,
               ),
-              SizedBox(height: 50.h,),
+              SizedBox(height: 150.h,),
               BottomRichText(
                 firstText: "Already have an account? ",
-                secondText: "Log In", routePage: Routes.login,
+                secondText: "Log In", routePage: Routes.signUp,
               ),
             ],
           ),

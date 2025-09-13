@@ -1,6 +1,6 @@
 export 'package:flutter/gestures.dart';
 export 'package:store_mobile/core/utils/icons.dart';
-export 'package:store_mobile/features/auth/pages/custom_text_field.dart';
+export 'package:store_mobile/features/common/widgets/textfield/custom_text_field.dart';
 export 'package:store_mobile/features/common/widgets/button/custom_button.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,3 +14,8 @@ export 'routing/router.dart';
 export 'package:flutter_svg/svg.dart';
 export 'routing/routes.dart';
 export 'package:store_mobile/features/common/validator.dart';
+export 'package:store_mobile/core/utils/colors.dart';
+export 'package:store_mobile/features/auth/widgets/sign_up_rich_text.dart';
+export 'package:store_mobile/features/auth/pages/bottom_rich_text.dart';
+export 'package:store_mobile/features/auth/pages/page_top_text.dart';
+export 'package:store_mobile/features/auth/widgets/or_with_divider.dart';
