@@ -30,3 +30,12 @@ export 'package:store_mobile/features/auth/managers/forgot_password_vm.dart';
 export 'package:cherry_toast/cherry_toast.dart';
 export 'package:cherry_toast/resources/arrays.dart';
 export 'package:store_mobile/features/auth/pages/reset_password_page.dart';
+export 'package:dio/dio.dart';
+export 'package:store_mobile/core/utils/result.dart';
+export 'package:store_mobile/core/network/auth_interceptor.dart';
+export 'package:store_mobile/core/network/client.dart';
+export 'package:store_mobile/data/models/auth/register_model.dart';
+export 'package:store_mobile/data/models/auth/login_model.dart';
+export 'package:store_mobile/data/repositories/authentication_repository.dart';
+export 'package:store_mobile/features/common/managers/theme_view_model.dart';
+

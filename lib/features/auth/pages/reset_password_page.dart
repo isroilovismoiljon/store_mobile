@@ -66,55 +66,58 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       style: TextStyle(color: Colors.black),
                     ),
                     animationType: AnimationType.fromLeft,
-                    actionHandler: () {
-                      print("Hello World!!");
-                    },
                   ).show(context);
                 } else {
                   isValidPassword && isValidConfirmPassword
                       ? showDialog(
-                          context: context,
-                          builder: (context) => Container(
-                            margin: EdgeInsets.symmetric(horizontal: 24.w),
-                            width: double.infinity,
-                            padding: EdgeInsets.all(24.r),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              borderRadius: BorderRadiusGeometry.circular(20.r),
+                    context: context,
+                    builder: (context) => Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(24.r),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              AppIcons.correct,
+                              width: 78.w,
+                              height: 78.h,
                             ),
-                            child: Center(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SvgPicture.asset(
-                                    AppIcons.correct,
-                                    width: 78.w,
-                                    height: 78.h,
-                                  ),
-                                  Text(
-                                    'Password Changed!',
-                                    style: TextStyle(
-                                      color: Theme.of(context).colorScheme.primary,
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Your can now use your new password to login to your account.',
-                                    style: TextStyle(
-                                      color: Theme.of(context).colorScheme.primary,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  CustomButton(title: 'Login', onPressed: (){context.go(Routes.login);})
-                                ],
+                            SizedBox(height: 12.h),
+                            Text(
+                              'Password Changed!',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ),
-                        )
-                      : null;
+                            SizedBox(height: 8.h),
+                            Text(
+                              'You can now use your new password to login to your account.',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            SizedBox(height: 20.h),
+                            CustomButton(
+                              title: 'Login',
+                              onPressed: () {
+                                context.go(Routes.login);
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                : null;
                 }
               },
               buttonColor: isValidPassword && isValidConfirmPassword
