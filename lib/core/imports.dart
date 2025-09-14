@@ -27,3 +27,6 @@ export 'package:store_mobile/features/auth/pages/login_page.dart';
 export 'package:store_mobile/features/auth/pages/sign_up_page.dart';
 export 'package:store_mobile/features/onboarding/pages/splash_page.dart';
 export 'package:store_mobile/features/auth/managers/forgot_password_vm.dart';
+export 'package:cherry_toast/cherry_toast.dart';
+export 'package:cherry_toast/resources/arrays.dart';
+export 'package:store_mobile/features/auth/pages/reset_password_page.dart';

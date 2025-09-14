@@ -24,19 +24,19 @@ class Validator {
       return "Password must contain at least one number";
     }
     if (!RegExp(r'[!@#\$%^&*(),.?":{}|<>]').hasMatch(password)) {
-      return "Password must contain at least one special character";
+      return "Must contain at least one special character";
     }
     return 'ok';
   }
   static String validateFullName(String password) {
     if (password.isEmpty) {
-      return "Full Name is required";
+      return "Required";
     }
     if (password.length < 3) {
-      return "Full Name must be at least 3 characters long";
+      return "Must be at least 3 characters long";
     }
     if (password.length > 50) {
-      return "Full Name must be at more 50 characters long";
+      return "Must be at more 50 characters long";
     }
     return 'ok';
   }

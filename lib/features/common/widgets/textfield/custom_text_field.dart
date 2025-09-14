@@ -44,7 +44,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           isValid = false;
           errorMessage = 'Please enter valid email address';
         }
-      } else if (widget.label == 'Password') {
+      } else if (widget.label.contains('Password')) {
         if (passwordValidText == 'ok') {
           borderColor = Colors.green;
           errorMessage = null;
@@ -76,19 +76,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
     });
     widget.onValidChanged(isValid);
   }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   widget.controller.addListener(_validate);
-  // }
-  //
-  // @override
-  // void dispose() {
-  //   widget.controller.removeListener(_validate);
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -105,18 +92,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
           controller: widget.controller,
           onChanged: _validate,
           style: TextStyle(color: Colors.black),
-          obscureText: widget.label != 'Password' ? false : (passwordIcon == AppIcons.eyeOff ? true : false),
+          obscureText: !widget.label.contains('Password') ? false : (passwordIcon == AppIcons.eyeOff ? true : false),
+          obscuringCharacter: '*',
           decoration: InputDecoration(
             constraints: BoxConstraints(maxHeight: 52.h),
             suffixIcon: fieldIcon != null && widget.controller.text.isNotEmpty
                 ? IconButton(
                     onPressed: () {},
                     padding: EdgeInsets.zero,
-                    // constraints: BoxConstraints(maxWidth: 24.w, maxHeight: 24.h),
                     iconSize: 24,
                     icon: SvgPicture.asset(fieldIcon!),
                   )
-                : widget.controller.text.isEmpty && widget.label == 'Password'
+                : widget.controller.text.isEmpty && widget.label.contains('Password')
                 ? IconButton(
                     onPressed: () {
                       passwordIcon = passwordIcon == AppIcons.eye ? AppIcons.eyeOff : AppIcons.eye;
