@@ -1,3 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_mobile/features/home/managers/home_cubit.dart';
+import 'package:store_mobile/features/home/managers/home_state.dart';
+import 'package:store_mobile/features/home/pages/app_bar_header.dart';
+import 'package:store_mobile/features/home/pages/search_and_sort.dart';
+
 import '../../../core/imports.dart';
 
 class HomePage extends StatelessWidget {
@@ -5,60 +11,79 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(
-              left: 24.w,
-              top: 59.h,
-            ),
-            height: 844.h,
-            child: Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    bottom: 83.h,
-                  ),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      'Define yourself in your unique way.',
-                      style: TextStyle(
-                        fontSize: 64.sp,
-                        fontWeight: FontWeight.w600,
-                      ).copyWith(height: 1.2.h),
+    return BlocProvider(
+      create: (context) => HomeCubit(categoryRepository: context.read()),
+      child: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          return Scaffold(
+            body: CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  toolbarHeight: 220.h,
+                  actionsPadding: EdgeInsets.only(right: 25.w),
+                  title: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25.w),
+                    child: Column(
+                      spacing: 16.h,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppBarHeader(),
+                        SearchAndSort(),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            spacing: 8.w,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 7.h,
+                                  horizontal: 20.w,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.r),
+                                  border: Border.all(color: AppColors.primary500.withValues(alpha: 0.2)),
+                                ),
+                                child: Text(
+                                  'All',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              ...List.generate(
+                                state.categories.length,
+                                (index) {
+                                  return Container(
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: 7.h,
+                                      horizontal: 20.w,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      border: Border.all(color: AppColors.primary500.withValues(alpha: 0.2)),
+                                    ),
+                                    child: Text(
+                                      state.categories[index].title,
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Image.asset(
-                    'assets/images/onboarding.png',
-                    width: 358.w,
-                    height: 697.h,
-                    fit: BoxFit.cover,
                   ),
                 ),
               ],
             ),
-          ),
-          SizedBox(
-            width: 341.w,
-            height: 64.h,
-            child: Padding(
-              padding: EdgeInsets.only(top: 10.h),
-              child: CustomButton(
-                title: 'Get Started',
-                buttonColor: Colors.black,
-                textColor: Colors.white,
-                onPressed: () {
-                  context.push(Routes.signUp);
-                },
-              ),
-            ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

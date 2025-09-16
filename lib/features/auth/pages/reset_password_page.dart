@@ -71,6 +71,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   isValidPassword && isValidConfirmPassword
                       ? showDialog(
                     context: context,
+                    barrierDismissible: false,
                     builder: (context) => Dialog(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.r),

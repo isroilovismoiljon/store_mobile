@@ -1,3 +1,4 @@
+import 'package:store_mobile/features/auth/pages/my_app_bar.dart';
 import 'package:store_mobile/features/auth/pages/otp_text_field.dart';
 
 import '../../../core/imports.dart';
@@ -12,7 +13,6 @@ class EnterOtpPage extends StatefulWidget {
 class _EnterOtpPageState extends State<EnterOtpPage> {
   final List<FocusNode> _focusNodes = List.generate(4, (index) => FocusNode()); // 4 ta field uchun
   final List<TextEditingController> _controllers = List.generate(4, (index) => TextEditingController());
-
 
   bool get isAllFilled {
     return _controllers.every((c) => c.text.isNotEmpty);
@@ -37,9 +37,7 @@ class _EnterOtpPageState extends State<EnterOtpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: SvgPicture.asset(AppIcons.backArrow)),
-      ),
+      appBar: MyAppBar(),
       body: Padding(
         padding: EdgeInsets.fromLTRB(24.w, 0.h, 24.w, 24.h),
         child: Column(
@@ -49,6 +47,19 @@ class _EnterOtpPageState extends State<EnterOtpPage> {
             PageTopText(
               title: 'Enter 4 Digit Code',
               subTitle: 'Enter 4 digit code that your receive on your email (cody.fisher45@example.com).',
+              subTitleRich: RichText(text: TextSpan(
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+                children: [
+                  TextSpan(text: 'Enter 4 digit code that your receive on your email ().', style: TextStyle(color: Theme.of(context).colorScheme.onSecondary)),
+                  TextSpan(
+                    text: 'cody.fisher45@example.com',
+                  ),
+                  TextSpan(text: ').', style: TextStyle(color: Theme.of(context).colorScheme.onSecondary)),
+                ],
+              ),),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -62,18 +73,24 @@ class _EnterOtpPageState extends State<EnterOtpPage> {
                 );
               }),
             ),
-            LoginRichText(
-              firstText: 'Email not received? ',
-              secondText: 'Resend code',
-              routePage: Routes.enterOtp,
+            Center(
+              child: LoginRichText(
+                firstText: 'Email not received? ',
+                secondText: 'Resend code',
+                routePage: Routes.enterOtp,
+              ),
             ),
             Spacer(),
             CustomButton(
               title: 'Continue',
-              onPressed: isAllFilled ? () {
-                context.go(Routes.resetPassword);
-              }: (){},
-              buttonColor: isAllFilled ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary,
+              onPressed: isAllFilled
+                  ? () {
+                      context.go(Routes.resetPassword);
+                    }
+                  : () {},
+              buttonColor: isAllFilled
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.secondary,
             ),
           ],
         ),

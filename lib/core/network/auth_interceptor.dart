@@ -7,9 +7,9 @@ class AuthInterceptor extends Interceptor {
 
   final dio = Dio(
     BaseOptions(
-      baseUrl: "http://192.168.9.118:8888/api/v1",
+      baseUrl: "http://192.168.10.107:8888/api/v1",
       // baseUrl: "http://172.20.10.6:8888/api/v1",
-      validateStatus: (status) => true,
+      // validateStatus: (status) => true,
     ),
   );
 
@@ -17,7 +17,8 @@ class AuthInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     var token = await secureStorage.read(key: 'token');
     if (token != null) {
-      options.headers['Authorization'] = 'Bearer $token';
+      // options.headers['Authorization'] = 'Bearer $token';
+      options.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlzcm9pbG92QGdtYWlsLmNvbSIsImp0aSI6IjkzNmYxZGM5LTNmMWYtNDFhYy04ZGE1LTk3MGNhMzc4MWViMCIsInVzZXJpZCI6IjE3IiwiZXhwIjoxODUyNzMzNzI2LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.H5tz_2ZZqxPDayctLFoHEr5UlDyl3A-m_cb-uQMNojk';
     }
     super.onRequest(options, handler);
   }

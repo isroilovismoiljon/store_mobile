@@ -2,10 +2,15 @@ import '../../../core/imports.dart';
 
 class PageTopText extends StatelessWidget {
   const PageTopText({
-    super.key, required this.title, required this.subTitle,
+    super.key,
+    required this.title,
+    required this.subTitle,
+    this.subTitleRich,
   });
+
   final String title;
   final String subTitle;
+  final RichText? subTitleRich;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +24,14 @@ class PageTopText extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-        Text(
+        subTitleRich == null ? Text(
           subTitle,
           style: TextStyle(
             fontSize: 16.sp,
             fontWeight: FontWeight.w400,
+            color: Theme.of(context).colorScheme.onSecondary,
           ),
-        ),
+        ) : subTitleRich!
       ],
     );
   }

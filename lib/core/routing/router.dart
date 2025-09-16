@@ -1,7 +1,7 @@
 import '../../../core/imports.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: Routes.resetPassword,
+  initialLocation: Routes.home,
   routes: <RouteBase>[
     GoRoute(path: Routes.home,
     builder: (context, state) => HomePage(),

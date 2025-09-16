@@ -9,5 +9,9 @@ class AppIcons{
   static const correct = "assets/icons/correct.svg";
   static const logoGoogle = "assets/icons/logos_google-icon.svg";
   static const logoFacebook = "assets/icons/logos_facebook.svg";
+  static const bell = "assets/icons/Bell.svg";
+  static const search = "assets/icons/Search.svg";
+  static const mic = "assets/icons/Mic.svg";
+  static const filter = "assets/icons/Filter.svg";
 
 }
