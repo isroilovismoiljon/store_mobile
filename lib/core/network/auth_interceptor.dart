@@ -16,10 +16,10 @@ class AuthInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     var token = await secureStorage.read(key: 'token');
-    if (token != null) {
+    // if (token != null) {
       // options.headers['Authorization'] = 'Bearer $token';
-      options.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlzcm9pbG92QGdtYWlsLmNvbSIsImp0aSI6IjkzNmYxZGM5LTNmMWYtNDFhYy04ZGE1LTk3MGNhMzc4MWViMCIsInVzZXJpZCI6IjE3IiwiZXhwIjoxODUyNzMzNzI2LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.H5tz_2ZZqxPDayctLFoHEr5UlDyl3A-m_cb-uQMNojk';
-    }
+      options.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlzcm9pbG92QGdtYWlsLmNvbSIsImp0aSI6ImNkODNmM2U2LWJiOGYtNGZhNS04OWE5LTZjODA3NTUyNTk1MCIsInVzZXJpZCI6IjE3IiwiZXhwIjoxODUyNzM0NjI3LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.qn8y9L8vQngTOyGbDBX1lyx9hc9ynIGEn07PYjaoQOw';
+    // }
     super.onRequest(options, handler);
   }
 
