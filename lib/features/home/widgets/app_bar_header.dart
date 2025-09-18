@@ -19,10 +19,15 @@ class AppBarHeader extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.centerRight,
-          child: SvgPicture.asset(
-            AppIcons.bell,
-            width: 24.w,
-            height: 24.h,
+          child: GestureDetector(
+            onTap: (){
+              context.push(Routes.notifications);
+            },
+            child: SvgPicture.asset(
+              AppIcons.bell,
+              width: 24.w,
+              height: 24.h,
+            ),
           ),
         ),
       ],

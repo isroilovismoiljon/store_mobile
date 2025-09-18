@@ -13,5 +13,6 @@ class AppIcons{
   static const search = "assets/icons/Search.svg";
   static const mic = "assets/icons/Mic.svg";
   static const filter = "assets/icons/Filter.svg";
+  static const discountDuotone = "assets/icons/Discount-duotone.svg";
 
 }
