@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/core/imports.dart';
-import 'package:store_mobile/features/notifications/pages/my_app_bar.dart';
+import 'package:store_mobile/features/common/app_bar/my_app_bar.dart';
+import 'package:store_mobile/features/notifications/bloc/notification/notifications_bloc.dart';
+import 'package:store_mobile/features/notifications/bloc/notification/notifications_state.dart';
+import 'package:store_mobile/features/notifications/pages/notifications_item.dart';
 
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({super.key});
@@ -12,69 +15,23 @@ class NotificationsPage extends StatefulWidget {
 class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MyAppBar(),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(24.w, 24.h, 24.w, 86.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 20.h,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 16.h,
+    return BlocBuilder<NotificationsBloc, NotificationsState>(
+      builder: (context, state) => Scaffold(
+        appBar: MyAppBar(),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(24.w, 24.h, 24.w, 86.h),
+            child: Column(
               children: [
-                Text(
-                  'Today',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Row(
-                  spacing: 13.w,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      AppIcons.discountDuotone,
-                      width: 24.w,
-                      height: 24.h,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '30% Special Discount!',
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text(
-                          'Special promotion only valid today.',
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Theme.of(context).colorScheme.onSecondary
-                          ),
-                        ),
-
-                      ],
-                    ),
-                  ],
+                ...List.generate(
+                  state.notifications.length,
+                  (index) {
+                    return NotificationsItem(state: state, index: index,);
+                  },
                 ),
               ],
             ),
-            PreferredSize(
-              preferredSize: Size.fromHeight(1.0),
-              child: Container(
-                color: Color(0xFFE6E6E6),
-                height: 1.0,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
