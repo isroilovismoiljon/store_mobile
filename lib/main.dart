@@ -1,9 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/core/imports.dart';
-
-import 'data/repositories/notifications_repository.dart';
 import 'features/common/managers/theme_view_model.dart';
-import 'features/notifications/bloc/notification/notifications_bloc.dart';
+import 'features/notifications/managers/notification/notifications_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

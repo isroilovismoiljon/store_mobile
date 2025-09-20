@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/core/constants/status.dart';
 import 'package:store_mobile/data/repositories/notifications_repository.dart';
-import 'package:store_mobile/features/notifications/bloc/notification/notifications_state.dart';
+import 'notifications_state.dart';
 
 part 'notifications_event.dart';
 

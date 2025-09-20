@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:store_mobile/data/models/category/category_model.dart';
 import 'package:store_mobile/data/models/product/product_model.dart';
-import 'package:store_mobile/features/common/enums/Status.dart';
+import '../../../core/constants/status.dart';
 
 class HomeState extends Equatable {
   final List<CategoryModel> categories;

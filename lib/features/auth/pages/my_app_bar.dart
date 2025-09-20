@@ -8,7 +8,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(onPressed: () {}, icon: SvgPicture.asset(AppIcons.backArrow)),
+      leading: IconButton(onPressed: () {
+        context.pop();
+      }, icon: SvgPicture.asset(AppIcons.backArrow)),
     );
   }
 

@@ -1,3 +1,5 @@
+import 'package:store_mobile/features/saved/pages/saved_page.dart';
+
 class Routes{
   static const splash = '/splash';
   static const home = '/home';
@@ -7,4 +9,5 @@ class Routes{
   static const enterOtp = '/enterOtp';
   static const resetPassword = '/resetPassword';
   static const notifications = '/notifications';
+  static const saved = '/saved';
 }

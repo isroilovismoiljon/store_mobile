@@ -1,4 +1,5 @@
 import 'package:store_mobile/features/notifications/pages/notifications_page.dart';
+import 'package:store_mobile/features/saved/pages/saved_page.dart';
 
 import '../../../core/imports.dart';
 
@@ -46,6 +47,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: Routes.notifications,
       builder: (context, state) => NotificationsPage(),
+    ),
+    GoRoute(
+      path: Routes.saved,
+      builder: (context, state) => SavedPage(),
     ),
   ],
 );

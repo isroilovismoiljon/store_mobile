@@ -23,7 +23,10 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      toolbarHeight: 220.h,
+      pinned: true,
+      scrolledUnderElevation: 0,
+      elevation: 0,
+      toolbarHeight: 211.h,
       actionsPadding: EdgeInsets.only(right: 25.w),
       title: Column(
         spacing: 16.h,

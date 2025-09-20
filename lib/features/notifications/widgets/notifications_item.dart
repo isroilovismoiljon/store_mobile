@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/core/constants/status.dart';
 import 'package:store_mobile/core/imports.dart';
-import 'package:store_mobile/features/common/app_bar/my_app_bar.dart';
-import 'package:store_mobile/features/notifications/bloc/notification/notifications_bloc.dart';
-import 'package:store_mobile/features/notifications/bloc/notification/notifications_state.dart';
+
+import '../managers/notification/notifications_state.dart';
 
 class NotificationsItem extends StatelessWidget {
   const NotificationsItem({
