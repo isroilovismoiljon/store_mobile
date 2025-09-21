@@ -1,5 +1,5 @@
-import 'package:store_mobile/features/auth/pages/my_app_bar.dart';
-import 'package:store_mobile/features/auth/pages/otp_text_field.dart';
+import 'package:store_mobile/features/auth/widgets/my_app_bar.dart';
+import 'package:store_mobile/features/auth/widgets/otp_text_field.dart';
 
 import '../../../core/imports.dart';
 
