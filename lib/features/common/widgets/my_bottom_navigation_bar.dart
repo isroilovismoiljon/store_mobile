@@ -72,7 +72,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                   selected = bottomItems[index]['id'];
                   print(selected);
                 });
-                context.go(bottomItems[index]['route']);
+                context.push(bottomItems[index]['route']);
               },
               child: Column(
                 children: [

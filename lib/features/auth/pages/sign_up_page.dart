@@ -1,6 +1,6 @@
 
 
-import '../../../core/imports.dart';
+import '../../../core/utils/imports.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

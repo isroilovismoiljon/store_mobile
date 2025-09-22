@@ -1,18 +1,22 @@
 import 'package:intl/intl.dart';
 import 'package:store_mobile/features/common/widgets/like.dart';
-import 'package:store_mobile/features/home/managers/home_state.dart';
 
 import '../../../core/imports.dart';
 
 class Product extends StatelessWidget {
   const Product({
     super.key,
-    required this.state,
-    required this.index,
+    required this.title,
+    required this.image,
+    required this.isLiked,
+    required this.price, required this.id,
   });
 
-  final HomeState state;
-  final int index;
+  final String title;
+  final String image;
+  final bool isLiked;
+  final num price;
+  final int id;
 
   String formatNumber(num number) {
     final formatter = NumberFormat.decimalPattern();
@@ -35,7 +39,7 @@ class Product extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10.r),
                   child: Image.network(
-                    state.products[index].image,
+                    image,
                     width: 161.w,
                     height: 174.h,
                     fit: BoxFit.cover,
@@ -44,7 +48,10 @@ class Product extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.topRight,
-                child: Like(),
+                child: Like(
+                  isLiked: isLiked,
+                  id: id,
+                ),
               ),
             ],
           ),
@@ -58,7 +65,7 @@ class Product extends StatelessWidget {
               spacing: 3.h,
               children: [
                 Text(
-                  state.products[index].title,
+                  title,
                   maxLines: 1,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
@@ -69,7 +76,7 @@ class Product extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "\$ ${formatNumber(state.products[index].price)}",
+                  "\$ ${formatNumber(price)}",
                   maxLines: 1,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSecondary,

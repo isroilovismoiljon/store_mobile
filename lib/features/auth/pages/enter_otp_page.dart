@@ -1,7 +1,7 @@
 import 'package:store_mobile/features/auth/widgets/my_app_bar.dart';
 import 'package:store_mobile/features/auth/widgets/otp_text_field.dart';
 
-import '../../../core/imports.dart';
+import '../../../core/utils/imports.dart';
 
 class EnterOtpPage extends StatefulWidget {
   const EnterOtpPage({super.key});
