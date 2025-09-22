@@ -1,13 +1,15 @@
-import 'package:store_mobile/features/saved/pages/saved_page.dart';
-
-class Routes{
+class Routes {
   static const splash = '/splash';
   static const home = '/home';
-  static const signUp = '/signUp';
+  static const signUp = '/sign-up';
   static const login = '/login';
-  static const forgotPassword = '/forgotPassword';
-  static const enterOtp = '/enterOtp';
-  static const resetPassword = '/resetPassword';
+  static const forgotPassword = '/forgot-password';
+  static const enterOtp = '/enter-otp';
+  static const resetPassword = '/reset-password';
   static const notifications = '/notifications';
   static const saved = '/saved';
+  static const productDetails = '/product-details/:id';
+
+  static String productDetailsWithId({required int productId}) =>
+      '/product-details/$productId';
 }

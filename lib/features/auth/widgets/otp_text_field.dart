@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import '../../../core/imports.dart';
+import '../../../core/utils/imports.dart';
 
 class OtpTextField extends StatelessWidget {
   final TextEditingController controller;

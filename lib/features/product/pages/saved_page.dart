@@ -6,9 +6,9 @@ import 'package:store_mobile/features/common/widgets/my_bottom_navigation_bar.da
 import 'package:store_mobile/features/common/widgets/empty_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
 import 'package:store_mobile/features/home/managers/home_state.dart';
-import 'package:store_mobile/features/saved/widgets/saved_product.dart';
 import '../../../core/constants/status.dart';
 import '../../common/widgets/app_bar/my_app_bar.dart';
+import '../widgets/saved_product.dart';
 
 class SavedPage extends StatelessWidget {
   const SavedPage({super.key});
@@ -18,7 +18,9 @@ class SavedPage extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(isHaveBottomLine: false, title: 'Saved Items', ),
       body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) => Padding(
+        builder: (context, state) {
+          print(state.savedProducts.length);
+          return Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: state.statusSavedProducts == Status.loading
               ? Center(child: CircularProgressIndicator())
@@ -46,9 +48,10 @@ class SavedPage extends StatelessWidget {
               : EmptyPage(
                   icon: AppIcons.heartDuotone,
                   title: 'No Saved Items!',
-                  subTitle: "You don’t have any saved items.\nGo to home and add some.",
+                  subTitle: "You don’t have any product items.\nGo to home and add some.",
                 ),
-        ),
+        );
+        },
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
     );

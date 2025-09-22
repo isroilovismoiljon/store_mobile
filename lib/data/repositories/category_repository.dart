@@ -1,4 +1,4 @@
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 import 'package:store_mobile/data/models/category/category_model.dart';
 
 class CategoryRepository {

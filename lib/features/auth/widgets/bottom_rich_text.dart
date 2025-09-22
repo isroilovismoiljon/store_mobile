@@ -1,4 +1,4 @@
-import '../../../core/imports.dart';
+import '../../../core/utils/imports.dart';
 
 class BottomRichText extends StatelessWidget {
   const BottomRichText({

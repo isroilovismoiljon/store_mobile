@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 import 'package:store_mobile/features/common/widgets/empty_page.dart';
-import 'package:store_mobile/features/common/widgets/bottom_nav_bar/my_bottom_navigation_bar.dart';
+import 'package:store_mobile/features/common/widgets/my_bottom_navigation_bar.dart';
 import 'package:store_mobile/features/notifications/widgets/notifications_item.dart';
 
-import '../../auth/pages/my_app_bar.dart';
+import '../../auth/widgets/my_app_bar.dart';
 import '../managers/notification/notifications_bloc.dart';
 import '../managers/notification/notifications_state.dart';
 

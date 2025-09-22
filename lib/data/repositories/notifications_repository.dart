@@ -1,4 +1,4 @@
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 import 'package:store_mobile/data/models/notifications/notification_model.dart';
 
 class NotificationsRepository {

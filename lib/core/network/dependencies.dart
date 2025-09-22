@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/data/repositories/category_repository.dart';
 import 'package:store_mobile/data/repositories/notifications_repository.dart';
 import 'package:store_mobile/data/repositories/product_repository.dart';
-
-import '../../../core/imports.dart';
+import 'package:store_mobile/data/repositories/user_repository.dart';
+import '../utils/imports.dart';
 
 final dependencies = [
   ChangeNotifierProvider(create: (context) => ThemeViewModel()),
@@ -21,4 +21,5 @@ final dependencies = [
   ),
   Provider(create: (context) => ProductRepository(client: context.read())),
   Provider(create: (context) => NotificationsRepository(client: context.read())),
+  Provider(create: (context) => UserRepository(client: context.read())),
 ];

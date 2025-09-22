@@ -1,5 +1,5 @@
-import 'package:store_mobile/core/imports.dart';
-import 'package:store_mobile/data/models/category/category_model.dart';
+import 'package:store_mobile/core/utils/imports.dart';
+import 'package:store_mobile/data/models/product/product_details_model.dart';
 import 'package:store_mobile/data/models/product/product_model.dart';
 
 class ProductRepository {
@@ -13,6 +13,23 @@ class ProductRepository {
     return result.fold(
       (error) => Result.error(error),
       (value) => Result.ok(value.map((x) => ProductModel.fromJson(x)).toList()),
+    );
+  }
+  Future<Result<List<ProductModel>>> getSavedProducts() async {
+    final result = await _client.get<List>('/products/product-products');
+
+    return result.fold(
+      (error) => Result.error(error),
+      (value) => Result.ok(value.map((x) => ProductModel.fromJson(x)).toList()),
+    );
+  }
+
+  Future<Result<List<ProductDetailsModel>>> getProductDetails(int id) async {
+    final result = await _client.get<List>('/products/detail/$id');
+
+    return result.fold(
+          (error) => Result.error(error),
+          (value) => Result.ok(value.map((x) => ProductDetailsModel.fromJson(x)).toList()),
     );
   }
 }

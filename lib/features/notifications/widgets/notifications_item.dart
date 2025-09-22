@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_mobile/core/constants/status.dart';
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 
 import '../managers/notification/notifications_state.dart';
 

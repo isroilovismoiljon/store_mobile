@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:store_mobile/data/models/product/product_model.dart';
 
-import '../../../core/constants/status.dart';
+import '../../../../core/constants/status.dart';
 
 part 'saved_state.freezed.dart';
 

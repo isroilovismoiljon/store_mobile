@@ -1,4 +1,4 @@
-import '../../../core/imports.dart';
+import '../utils/imports.dart';
 
 class ApiClient {
   ApiClient({required AuthInterceptor interceptor, required String baseUrl})

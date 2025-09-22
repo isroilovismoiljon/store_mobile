@@ -17,8 +17,11 @@ class AppIcons{
   static const discountDuotone = "assets/icons/Discount-duotone.svg";
   static const home = "assets/icons/Home.svg";
   static const heartDuotone = "assets/icons/Heart-duotone.svg";
+  static const heartFilled = "assets/icons/heart-filled.svg";
   static const heart = "assets/icons/Heart.svg";
   static const cart = "assets/icons/Cart.svg";
   static const user = "assets/icons/User.svg";
+  static const star = "assets/icons/star.svg";
+  static const bag = "assets/icons/bag.svg";
 
 }

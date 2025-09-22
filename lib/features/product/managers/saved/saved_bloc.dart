@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/core/constants/status.dart';
 import 'package:store_mobile/data/repositories/product_repository.dart';
 import 'package:store_mobile/data/repositories/user_repository.dart';
-import 'package:store_mobile/features/saved/managers/saved_event.dart';
-import 'package:store_mobile/features/saved/managers/saved_state.dart';
+import 'package:store_mobile/features/product/managers/saved/saved_event.dart';
+import 'package:store_mobile/features/product/managers/saved/saved_state.dart';
 
 class SavedBloc extends Bloc<SavedEvent, SavedState> {
   final ProductRepository _productRepository;

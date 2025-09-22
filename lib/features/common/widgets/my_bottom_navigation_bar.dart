@@ -1,4 +1,4 @@
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({
@@ -55,7 +55,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         color: Theme.of(context).colorScheme.onPrimary,
         border: Border(
           top: BorderSide(
-            color: Theme.of(context).colorScheme.onSecondary,
+            color: AppColors.borderColor,
             width: 1,
           ),
         ),
@@ -70,9 +70,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
               onTap: () {
                 setState(() {
                   selected = bottomItems[index]['id'];
-                  print(selected);
                 });
-                context.push(bottomItems[index]['route']);
+                final route = bottomItems[index]['route'];
+                route == Routes.home ? context.go(route) : context.push(route);
               },
               child: Column(
                 children: [

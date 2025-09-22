@@ -1,9 +1,10 @@
-import 'package:store_mobile/features/home/managers/home_cubit.dart';
+import 'package:store_mobile/features/home/managers/home_bloc.dart';
+import 'package:store_mobile/features/home/managers/home_event.dart';
 import 'package:store_mobile/features/home/managers/home_state.dart';
 import 'package:store_mobile/features/home/widgets/app_bar_header.dart';
 import 'package:store_mobile/features/home/widgets/search_and_sort.dart';
 
-import '../../../core/imports.dart';
+import '../../../core/utils/imports.dart';
 
 class HomeAppBar extends StatefulWidget {
   const HomeAppBar({
@@ -43,7 +44,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                   onTap: () {
                     setState(() {
                       selectedCategoryId = 0;
-                      context.read<HomeCubit>().getProducts({});
+                      context.read<HomeBloc>().add(HomeEventGetProducts());
                     });
                   },
                   child: Container(
@@ -77,7 +78,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                       onTap: () {
                         setState(() {
                           selectedCategoryId = widget.state.categories[index].id;
-                          context.read<HomeCubit>().getProducts({'CategoryId': selectedCategoryId});
+                          context.read<HomeBloc>().add(HomeEventGetProducts(categoryId: selectedCategoryId));
                         });
                       },
                       child: Container(

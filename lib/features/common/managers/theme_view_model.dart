@@ -1,4 +1,4 @@
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 
 class ThemeViewModel extends ChangeNotifier{
   ThemeMode mode = ThemeMode.light;

@@ -1,4 +1,4 @@
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
 
 class EmptyPage extends StatelessWidget {
   const EmptyPage({
@@ -19,7 +19,7 @@ class EmptyPage extends StatelessWidget {
         spacing: 12.h,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 180.h),
+          SizedBox(height: 100.h),
           SvgPicture.asset(
             icon,
             width: 64.w,

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_mobile/core/imports.dart';
+import 'package:store_mobile/core/utils/imports.dart';
+import 'package:store_mobile/core/network/bloc_dependencies.dart';
 import 'features/common/managers/theme_view_model.dart';
-import 'features/notifications/managers/notification/notifications_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,13 +18,7 @@ class MyApp extends StatelessWidget {
       builder:(context, child) =>  MultiRepositoryProvider(
         providers: dependencies,
         child: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => NotificationsBloc(
-                notificationsRepository: context.read(),
-              ),
-            ),
-          ],
+          providers: blocDependencies,
           child: Builder(
             builder: (context) {
               return MaterialApp.router(

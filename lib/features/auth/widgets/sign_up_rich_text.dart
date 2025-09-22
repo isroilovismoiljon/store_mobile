@@ -1,4 +1,4 @@
-import '../../../core/imports.dart';
+import '../../../core/utils/imports.dart';
 
 class SignUpRichText extends StatelessWidget {
   const SignUpRichText({

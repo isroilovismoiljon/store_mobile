@@ -10,6 +10,11 @@ class HomeState extends Equatable {
   final List<ProductModel> products;
   final Status statusProducts;
   final String? errorMessageProducts;
+  final List<ProductModel> savedProducts;
+  final Status statusSavedProducts;
+  final String? errorMessageSavedProducts;
+  final Status statusLike;
+  final String? errorMessageLike;
 
   const HomeState({
     required this.errorMessageCategories,
@@ -18,6 +23,11 @@ class HomeState extends Equatable {
     required this.errorMessageProducts,
     required this.statusProducts,
     required this.products,
+    required this.statusLike,
+    required this.errorMessageLike,
+    required this.savedProducts,
+    required this.statusSavedProducts,
+    required this.errorMessageSavedProducts,
   });
 
   HomeState copyWith({
@@ -27,6 +37,11 @@ class HomeState extends Equatable {
     List<ProductModel>? products,
     Status? statusProducts,
     String? errorMessageProducts,
+    List<ProductModel>? savedProducts,
+    Status? statusSavedProducts,
+    String? errorMessageSavedProducts,
+    Status? statusLike,
+    String? errorMessageLike,
   }) => HomeState(
     categories: categories ?? this.categories,
     statusCategories: statusCategory ?? this.statusCategories,
@@ -34,6 +49,11 @@ class HomeState extends Equatable {
     products: products ?? this.products,
     statusProducts: statusProducts ?? this.statusProducts,
     errorMessageProducts: errorMessageProducts ?? this.errorMessageProducts,
+    statusLike: statusLike ?? this.statusLike,
+    errorMessageLike: errorMessageLike ?? this.errorMessageLike,
+    savedProducts: savedProducts ?? this.savedProducts,
+    statusSavedProducts: statusSavedProducts ?? this.statusSavedProducts,
+    errorMessageSavedProducts: errorMessageSavedProducts ?? this.errorMessageSavedProducts,
   );
 
   factory HomeState.initial() => HomeState(
@@ -43,6 +63,11 @@ class HomeState extends Equatable {
     errorMessageProducts: null,
     statusProducts: Status.idle,
     products: [],
+    statusLike: Status.idle,
+    errorMessageLike: null,
+    savedProducts: [],
+    statusSavedProducts: Status.idle,
+    errorMessageSavedProducts: null,
   );
 
   @override
@@ -53,5 +78,10 @@ class HomeState extends Equatable {
     products,
     statusProducts,
     errorMessageProducts,
+    statusLike,
+    errorMessageLike,
+    savedProducts,
+    statusSavedProducts,
+    errorMessageSavedProducts,
   ];
 }
