@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
         return Scaffold(
           extendBody: true,
           body: Padding(
-            padding: EdgeInsets.only(left: 24.w, ),
+            padding: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 86.h),
             child: CustomScrollView(
               slivers: [
                 HomeAppBar(

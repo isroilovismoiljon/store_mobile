@@ -6,6 +6,7 @@ import 'package:store_mobile/data/repositories/user_repository.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_event.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_state.dart';
 
+import '../../../../core/utils/result.dart';
 import '../../../home/managers/home_event.dart';
 
 class ProductDetailsBloc extends Bloc<ProductDetailsEvent, ProductDetailsState> {
@@ -37,7 +38,8 @@ class ProductDetailsBloc extends Bloc<ProductDetailsEvent, ProductDetailsState> 
 
   Future<void> _save(ProductDetailsSaveProduct events, Emitter<ProductDetailsState> emit) async {
     emit(state.copyWith(statusLike: Status.loading, errorMessageLike: null));
-    final result = await _userRepository.save(events.id);
+    // final result = await _userRepository.save(events.id);
+    final result = Result.ok(null);
     result.fold(
       (error) {
         emit(state.copyWith(statusLike: Status.error, errorMessageLike: error.toString()));
@@ -61,7 +63,8 @@ class ProductDetailsBloc extends Bloc<ProductDetailsEvent, ProductDetailsState> 
 
   Future<void> _unSave(ProductDetailsUnSaveProduct events, Emitter<ProductDetailsState> emit) async {
     emit(state.copyWith(statusLike: Status.loading, errorMessageLike: null));
-    final result = await _userRepository.save(events.id);
+    // final result = await _userRepository.unSave(events.id);
+    final result = Result.ok(null);
     result.fold(
       (error) {
         emit(state.copyWith(statusLike: Status.error, errorMessageLike: error.toString()));

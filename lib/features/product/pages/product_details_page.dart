@@ -76,12 +76,11 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                               iconSize: 25,
                               onTap: () {
                                 if (state.productDetails!.isLiked) {
-                                  context.read<ProductDetailsBloc>().add(ProductDetailsSaveProduct(id: widget.id));
+                                  context.read<ProductDetailsBloc>().add(ProductDetailsUnSaveProduct(id: widget.id));
                                 } else {
                                   context.read<ProductDetailsBloc>().add(ProductDetailsSaveProduct(id: widget.id));
                                 }
                                 context.read<HomeBloc>().add(HomeEventGetProducts());
-                                context.read<HomeBloc>().add(HomeEventGetSavedProducts());
                                 setState(() {});
                               },
                             ),
@@ -140,7 +139,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                                   ),
                                   child: Text(
                                     state.productDetails!.productSizes[index].title,
-                                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
+                                    style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
                                   ),
                                 );
                               },
