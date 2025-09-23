@@ -5,10 +5,10 @@ class ProductDetailsModel {
   final String description;
   final num price;
   final bool isLiked;
-  final List<ProductImage> productImages;
-  final List<ProductSize> productSizes;
   final int reviewsCount;
   final num rating;
+  final List<ProductImage> productImages;
+  final List<ProductSize> productSizes;
 
   ProductDetailsModel({
     required this.id,
@@ -28,10 +28,10 @@ class ProductDetailsModel {
     description: json["description"],
     price: json["price"],
     isLiked: json["isLiked"],
-    productImages: List<ProductImage>.from(json["productImages"].map((x) => ProductImage.fromJson(x))),
-    productSizes: List<ProductSize>.from(json["productSizes"].map((x) => ProductSize.fromJson(x))),
     reviewsCount: json["reviewsCount"],
     rating: json["rating"],
+    productImages: List<ProductImage>.from(json["productImages"].map((x) => ProductImage.fromJson(x))),
+    productSizes: List<ProductSize>.from(json["productSizes"].map((x) => ProductSize.fromJson(x))),
   );
 }
 

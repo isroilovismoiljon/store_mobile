@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProductDetailsState {
 
- List<ProductDetailsModel> get productDetails; Status get statusProductDetails; String? get errorMessageProductDetails;
+ ProductDetailsModel? get productDetails; Status get statusProductDetails; String? get errorMessageProductDetails; Status get statusLike; String? get errorMessageLike;
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $ProductDetailsStateCopyWith<ProductDetailsState> get copyWith => _$ProductDetai
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductDetailsState&&const DeepCollectionEquality().equals(other.productDetails, productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductDetailsState&&(identical(other.productDetails, productDetails) || other.productDetails == productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails)&&(identical(other.statusLike, statusLike) || other.statusLike == statusLike)&&(identical(other.errorMessageLike, errorMessageLike) || other.errorMessageLike == errorMessageLike));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(productDetails),statusProductDetails,errorMessageProductDetails);
+int get hashCode => Object.hash(runtimeType,productDetails,statusProductDetails,errorMessageProductDetails,statusLike,errorMessageLike);
 
 @override
 String toString() {
-  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails)';
+  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails, statusLike: $statusLike, errorMessageLike: $errorMessageLike)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $ProductDetailsStateCopyWith<$Res>  {
   factory $ProductDetailsStateCopyWith(ProductDetailsState value, $Res Function(ProductDetailsState) _then) = _$ProductDetailsStateCopyWithImpl;
 @useResult
 $Res call({
- List<ProductDetailsModel> productDetails, Status statusProductDetails, String? errorMessageProductDetails
+ ProductDetailsModel? productDetails, Status statusProductDetails, String? errorMessageProductDetails, Status statusLike, String? errorMessageLike
 });
 
 
@@ -62,11 +62,13 @@ class _$ProductDetailsStateCopyWithImpl<$Res>
 
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? productDetails = null,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? productDetails = freezed,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,Object? statusLike = null,Object? errorMessageLike = freezed,}) {
   return _then(_self.copyWith(
-productDetails: null == productDetails ? _self.productDetails : productDetails // ignore: cast_nullable_to_non_nullable
-as List<ProductDetailsModel>,statusProductDetails: null == statusProductDetails ? _self.statusProductDetails : statusProductDetails // ignore: cast_nullable_to_non_nullable
+productDetails: freezed == productDetails ? _self.productDetails : productDetails // ignore: cast_nullable_to_non_nullable
+as ProductDetailsModel?,statusProductDetails: null == statusProductDetails ? _self.statusProductDetails : statusProductDetails // ignore: cast_nullable_to_non_nullable
 as Status,errorMessageProductDetails: freezed == errorMessageProductDetails ? _self.errorMessageProductDetails : errorMessageProductDetails // ignore: cast_nullable_to_non_nullable
+as String?,statusLike: null == statusLike ? _self.statusLike : statusLike // ignore: cast_nullable_to_non_nullable
+as Status,errorMessageLike: freezed == errorMessageLike ? _self.errorMessageLike : errorMessageLike // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -152,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<ProductDetailsModel> productDetails,  Status statusProductDetails,  String? errorMessageProductDetails)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProductDetailsState() when $default != null:
-return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails);case _:
+return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike);case _:
   return orElse();
 
 }
@@ -173,10 +175,10 @@ return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessa
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<ProductDetailsModel> productDetails,  Status statusProductDetails,  String? errorMessageProductDetails)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike)  $default,) {final _that = this;
 switch (_that) {
 case _ProductDetailsState():
-return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails);case _:
+return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +195,10 @@ return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessa
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<ProductDetailsModel> productDetails,  Status statusProductDetails,  String? errorMessageProductDetails)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike)?  $default,) {final _that = this;
 switch (_that) {
 case _ProductDetailsState() when $default != null:
-return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails);case _:
+return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike);case _:
   return null;
 
 }
@@ -208,18 +210,14 @@ return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessa
 
 
 class _ProductDetailsState implements ProductDetailsState {
-  const _ProductDetailsState({required final  List<ProductDetailsModel> productDetails, required this.statusProductDetails, required this.errorMessageProductDetails}): _productDetails = productDetails;
+  const _ProductDetailsState({required this.productDetails, required this.statusProductDetails, required this.errorMessageProductDetails, required this.statusLike, required this.errorMessageLike});
   
 
- final  List<ProductDetailsModel> _productDetails;
-@override List<ProductDetailsModel> get productDetails {
-  if (_productDetails is EqualUnmodifiableListView) return _productDetails;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_productDetails);
-}
-
+@override final  ProductDetailsModel? productDetails;
 @override final  Status statusProductDetails;
 @override final  String? errorMessageProductDetails;
+@override final  Status statusLike;
+@override final  String? errorMessageLike;
 
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +229,16 @@ _$ProductDetailsStateCopyWith<_ProductDetailsState> get copyWith => __$ProductDe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductDetailsState&&const DeepCollectionEquality().equals(other._productDetails, _productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductDetailsState&&(identical(other.productDetails, productDetails) || other.productDetails == productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails)&&(identical(other.statusLike, statusLike) || other.statusLike == statusLike)&&(identical(other.errorMessageLike, errorMessageLike) || other.errorMessageLike == errorMessageLike));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_productDetails),statusProductDetails,errorMessageProductDetails);
+int get hashCode => Object.hash(runtimeType,productDetails,statusProductDetails,errorMessageProductDetails,statusLike,errorMessageLike);
 
 @override
 String toString() {
-  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails)';
+  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails, statusLike: $statusLike, errorMessageLike: $errorMessageLike)';
 }
 
 
@@ -251,7 +249,7 @@ abstract mixin class _$ProductDetailsStateCopyWith<$Res> implements $ProductDeta
   factory _$ProductDetailsStateCopyWith(_ProductDetailsState value, $Res Function(_ProductDetailsState) _then) = __$ProductDetailsStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<ProductDetailsModel> productDetails, Status statusProductDetails, String? errorMessageProductDetails
+ ProductDetailsModel? productDetails, Status statusProductDetails, String? errorMessageProductDetails, Status statusLike, String? errorMessageLike
 });
 
 
@@ -268,11 +266,13 @@ class __$ProductDetailsStateCopyWithImpl<$Res>
 
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? productDetails = null,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? productDetails = freezed,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,Object? statusLike = null,Object? errorMessageLike = freezed,}) {
   return _then(_ProductDetailsState(
-productDetails: null == productDetails ? _self._productDetails : productDetails // ignore: cast_nullable_to_non_nullable
-as List<ProductDetailsModel>,statusProductDetails: null == statusProductDetails ? _self.statusProductDetails : statusProductDetails // ignore: cast_nullable_to_non_nullable
+productDetails: freezed == productDetails ? _self.productDetails : productDetails // ignore: cast_nullable_to_non_nullable
+as ProductDetailsModel?,statusProductDetails: null == statusProductDetails ? _self.statusProductDetails : statusProductDetails // ignore: cast_nullable_to_non_nullable
 as Status,errorMessageProductDetails: freezed == errorMessageProductDetails ? _self.errorMessageProductDetails : errorMessageProductDetails // ignore: cast_nullable_to_non_nullable
+as String?,statusLike: null == statusLike ? _self.statusLike : statusLike // ignore: cast_nullable_to_non_nullable
+as Status,errorMessageLike: freezed == errorMessageLike ? _self.errorMessageLike : errorMessageLike // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

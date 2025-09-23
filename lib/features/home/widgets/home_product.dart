@@ -1,5 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:store_mobile/features/common/widgets/like.dart';
+import 'package:store_mobile/features/product/managers/details/product_details_bloc.dart';
+import 'package:store_mobile/features/product/managers/details/product_details_event.dart';
 
 import '../../../core/utils/imports.dart';
 
@@ -28,6 +30,7 @@ class HomeProduct extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.push(Routes.productDetailsWithId(productId: id));
+        context.read<ProductDetailsBloc>().add(ProductDetailsGetProductDetails(id: id));
       },
       child: Column(
         spacing: 6.h,

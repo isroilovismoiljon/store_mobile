@@ -16,7 +16,7 @@ class ProductRepository {
     );
   }
   Future<Result<List<ProductModel>>> getSavedProducts() async {
-    final result = await _client.get<List>('/products/product-products');
+    final result = await _client.get<List>('/products/saved-products');
 
     return result.fold(
       (error) => Result.error(error),
@@ -24,12 +24,12 @@ class ProductRepository {
     );
   }
 
-  Future<Result<List<ProductDetailsModel>>> getProductDetails(int id) async {
-    final result = await _client.get<List>('/products/detail/$id');
+  Future<Result<ProductDetailsModel>> getProductDetails(int id) async {
+    final result = await _client.get<Map<String, dynamic>>('/products/detail/$id');
 
     return result.fold(
           (error) => Result.error(error),
-          (value) => Result.ok(value.map((x) => ProductDetailsModel.fromJson(x)).toList()),
+          (value) => Result.ok(ProductDetailsModel.fromJson(value)),
     );
   }
 }

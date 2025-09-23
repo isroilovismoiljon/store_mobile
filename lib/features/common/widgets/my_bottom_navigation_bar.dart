@@ -1,4 +1,7 @@
 import 'package:store_mobile/core/utils/imports.dart';
+import 'package:store_mobile/features/home/managers/home_bloc.dart';
+
+import '../../home/managers/home_event.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({
@@ -73,6 +76,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 });
                 final route = bottomItems[index]['route'];
                 route == Routes.home ? context.go(route) : context.push(route);
+                if (route == Routes.saved) context.read<HomeBloc>().add(HomeEventGetSavedProducts());
               },
               child: Column(
                 children: [

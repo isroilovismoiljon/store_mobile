@@ -26,6 +26,7 @@ final blocDependencies = [
   BlocProvider<ProductDetailsBloc>(
     create: (context) => ProductDetailsBloc(
       productRepository: context.read(),
+      userRepo: context.read(),
     ),
   ),
 ];
