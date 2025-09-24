@@ -1,3 +1,5 @@
+import 'package:store_mobile/features/common/widgets/dialog/success_dialog.dart';
+
 import '../../../core/utils/imports.dart';
 
 class ResetPasswordPage extends StatefulWidget {
@@ -70,55 +72,15 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 } else {
                   isValidPassword && isValidConfirmPassword
                       ? showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (context) => Dialog(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(24.r),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              AppIcons.correct,
-                              width: 78.w,
-                              height: 78.h,
-                            ),
-                            SizedBox(height: 12.h),
-                            Text(
-                              'Password Changed!',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            SizedBox(height: 8.h),
-                            Text(
-                              'You can now use your new password to login to your account.',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            SizedBox(height: 20.h),
-                            CustomButton(
-                              title: 'Login',
-                              onPressed: () {
-                                context.go(Routes.login);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                : null;
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => SuccessDialog(
+                            title: 'Password Changed!',
+                            subTitle: 'You can now use your new password to login to your account.',
+                            buttonText: 'Login',
+                          ),
+                        )
+                      : null;
                 }
               },
               buttonColor: isValidPassword && isValidConfirmPassword

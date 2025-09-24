@@ -29,7 +29,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 16.h,
         ),
       ),
-      leadingWidth: 100,
+      leadingWidth: 70,
       title: Text(title, style: AppStyles.appBarTitle),
       centerTitle: true,
       bottom: isHaveBottomLine

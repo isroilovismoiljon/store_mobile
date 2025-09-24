@@ -10,8 +10,12 @@ class Routes {
   static const saved = '/saved';
   static const productDetails = '/product-details/:id';
 
-  static String productDetailsWithId({required int productId}) =>
-      '/product-details/$productId';
+  static String productDetailsWithId({required int productId}) => '/product-details/$productId';
   static const myCart = '/my-cart';
   static const account = '/account';
+  static const checkout = '/checkout';
+  static const address = '/address';
+  static const paymentMethod = '/payment-method';
+  static const newCard = '/new-card';
+  static const helpCenter = '/help-center';
 }
