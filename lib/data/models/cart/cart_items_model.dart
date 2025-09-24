@@ -1,11 +1,11 @@
-class CartModel {
+class CartItemModel {
   final List<Item> items;
   final int subTotal;
   final int vat;
   final int shippingFee;
   final int total;
 
-  CartModel({
+  CartItemModel({
     required this.items,
     required this.subTotal,
     required this.vat,
@@ -13,7 +13,7 @@ class CartModel {
     required this.total,
   });
 
-  factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
+  factory CartItemModel.fromJson(Map<String, dynamic> json) => CartItemModel(
     items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
     subTotal: json["subTotal"],
     vat: json["vat"],

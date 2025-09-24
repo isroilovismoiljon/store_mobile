@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProductDetailsState {
 
- ProductDetailsModel? get productDetails; Status get statusProductDetails; String? get errorMessageProductDetails; Status get statusLike; String? get errorMessageLike;
+ ProductDetailsModel? get productDetails; Status get statusProductDetails; String? get errorMessageProductDetails; Status get statusLike; String? get errorMessageLike; int? get selectedSizeId; Status get statusAddedProduct; String? get errorMessageAddedProduct;
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $ProductDetailsStateCopyWith<ProductDetailsState> get copyWith => _$ProductDetai
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductDetailsState&&(identical(other.productDetails, productDetails) || other.productDetails == productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails)&&(identical(other.statusLike, statusLike) || other.statusLike == statusLike)&&(identical(other.errorMessageLike, errorMessageLike) || other.errorMessageLike == errorMessageLike));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductDetailsState&&(identical(other.productDetails, productDetails) || other.productDetails == productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails)&&(identical(other.statusLike, statusLike) || other.statusLike == statusLike)&&(identical(other.errorMessageLike, errorMessageLike) || other.errorMessageLike == errorMessageLike)&&(identical(other.selectedSizeId, selectedSizeId) || other.selectedSizeId == selectedSizeId)&&(identical(other.statusAddedProduct, statusAddedProduct) || other.statusAddedProduct == statusAddedProduct)&&(identical(other.errorMessageAddedProduct, errorMessageAddedProduct) || other.errorMessageAddedProduct == errorMessageAddedProduct));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,productDetails,statusProductDetails,errorMessageProductDetails,statusLike,errorMessageLike);
+int get hashCode => Object.hash(runtimeType,productDetails,statusProductDetails,errorMessageProductDetails,statusLike,errorMessageLike,selectedSizeId,statusAddedProduct,errorMessageAddedProduct);
 
 @override
 String toString() {
-  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails, statusLike: $statusLike, errorMessageLike: $errorMessageLike)';
+  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails, statusLike: $statusLike, errorMessageLike: $errorMessageLike, selectedSizeId: $selectedSizeId, statusAddedProduct: $statusAddedProduct, errorMessageAddedProduct: $errorMessageAddedProduct)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $ProductDetailsStateCopyWith<$Res>  {
   factory $ProductDetailsStateCopyWith(ProductDetailsState value, $Res Function(ProductDetailsState) _then) = _$ProductDetailsStateCopyWithImpl;
 @useResult
 $Res call({
- ProductDetailsModel? productDetails, Status statusProductDetails, String? errorMessageProductDetails, Status statusLike, String? errorMessageLike
+ ProductDetailsModel? productDetails, Status statusProductDetails, String? errorMessageProductDetails, Status statusLike, String? errorMessageLike, int? selectedSizeId, Status statusAddedProduct, String? errorMessageAddedProduct
 });
 
 
@@ -62,13 +62,16 @@ class _$ProductDetailsStateCopyWithImpl<$Res>
 
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? productDetails = freezed,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,Object? statusLike = null,Object? errorMessageLike = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? productDetails = freezed,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,Object? statusLike = null,Object? errorMessageLike = freezed,Object? selectedSizeId = freezed,Object? statusAddedProduct = null,Object? errorMessageAddedProduct = freezed,}) {
   return _then(_self.copyWith(
 productDetails: freezed == productDetails ? _self.productDetails : productDetails // ignore: cast_nullable_to_non_nullable
 as ProductDetailsModel?,statusProductDetails: null == statusProductDetails ? _self.statusProductDetails : statusProductDetails // ignore: cast_nullable_to_non_nullable
 as Status,errorMessageProductDetails: freezed == errorMessageProductDetails ? _self.errorMessageProductDetails : errorMessageProductDetails // ignore: cast_nullable_to_non_nullable
 as String?,statusLike: null == statusLike ? _self.statusLike : statusLike // ignore: cast_nullable_to_non_nullable
 as Status,errorMessageLike: freezed == errorMessageLike ? _self.errorMessageLike : errorMessageLike // ignore: cast_nullable_to_non_nullable
+as String?,selectedSizeId: freezed == selectedSizeId ? _self.selectedSizeId : selectedSizeId // ignore: cast_nullable_to_non_nullable
+as int?,statusAddedProduct: null == statusAddedProduct ? _self.statusAddedProduct : statusAddedProduct // ignore: cast_nullable_to_non_nullable
+as Status,errorMessageAddedProduct: freezed == errorMessageAddedProduct ? _self.errorMessageAddedProduct : errorMessageAddedProduct // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -154,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike,  int? selectedSizeId,  Status statusAddedProduct,  String? errorMessageAddedProduct)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProductDetailsState() when $default != null:
-return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike);case _:
+return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike,_that.selectedSizeId,_that.statusAddedProduct,_that.errorMessageAddedProduct);case _:
   return orElse();
 
 }
@@ -175,10 +178,10 @@ return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessa
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike,  int? selectedSizeId,  Status statusAddedProduct,  String? errorMessageAddedProduct)  $default,) {final _that = this;
 switch (_that) {
 case _ProductDetailsState():
-return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike);case _:
+return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike,_that.selectedSizeId,_that.statusAddedProduct,_that.errorMessageAddedProduct);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +198,10 @@ return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessa
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ProductDetailsModel? productDetails,  Status statusProductDetails,  String? errorMessageProductDetails,  Status statusLike,  String? errorMessageLike,  int? selectedSizeId,  Status statusAddedProduct,  String? errorMessageAddedProduct)?  $default,) {final _that = this;
 switch (_that) {
 case _ProductDetailsState() when $default != null:
-return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike);case _:
+return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessageProductDetails,_that.statusLike,_that.errorMessageLike,_that.selectedSizeId,_that.statusAddedProduct,_that.errorMessageAddedProduct);case _:
   return null;
 
 }
@@ -210,7 +213,7 @@ return $default(_that.productDetails,_that.statusProductDetails,_that.errorMessa
 
 
 class _ProductDetailsState implements ProductDetailsState {
-  const _ProductDetailsState({required this.productDetails, required this.statusProductDetails, required this.errorMessageProductDetails, required this.statusLike, required this.errorMessageLike});
+  const _ProductDetailsState({required this.productDetails, required this.statusProductDetails, required this.errorMessageProductDetails, required this.statusLike, required this.errorMessageLike, required this.selectedSizeId, required this.statusAddedProduct, required this.errorMessageAddedProduct});
   
 
 @override final  ProductDetailsModel? productDetails;
@@ -218,6 +221,9 @@ class _ProductDetailsState implements ProductDetailsState {
 @override final  String? errorMessageProductDetails;
 @override final  Status statusLike;
 @override final  String? errorMessageLike;
+@override final  int? selectedSizeId;
+@override final  Status statusAddedProduct;
+@override final  String? errorMessageAddedProduct;
 
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
@@ -229,16 +235,16 @@ _$ProductDetailsStateCopyWith<_ProductDetailsState> get copyWith => __$ProductDe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductDetailsState&&(identical(other.productDetails, productDetails) || other.productDetails == productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails)&&(identical(other.statusLike, statusLike) || other.statusLike == statusLike)&&(identical(other.errorMessageLike, errorMessageLike) || other.errorMessageLike == errorMessageLike));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductDetailsState&&(identical(other.productDetails, productDetails) || other.productDetails == productDetails)&&(identical(other.statusProductDetails, statusProductDetails) || other.statusProductDetails == statusProductDetails)&&(identical(other.errorMessageProductDetails, errorMessageProductDetails) || other.errorMessageProductDetails == errorMessageProductDetails)&&(identical(other.statusLike, statusLike) || other.statusLike == statusLike)&&(identical(other.errorMessageLike, errorMessageLike) || other.errorMessageLike == errorMessageLike)&&(identical(other.selectedSizeId, selectedSizeId) || other.selectedSizeId == selectedSizeId)&&(identical(other.statusAddedProduct, statusAddedProduct) || other.statusAddedProduct == statusAddedProduct)&&(identical(other.errorMessageAddedProduct, errorMessageAddedProduct) || other.errorMessageAddedProduct == errorMessageAddedProduct));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,productDetails,statusProductDetails,errorMessageProductDetails,statusLike,errorMessageLike);
+int get hashCode => Object.hash(runtimeType,productDetails,statusProductDetails,errorMessageProductDetails,statusLike,errorMessageLike,selectedSizeId,statusAddedProduct,errorMessageAddedProduct);
 
 @override
 String toString() {
-  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails, statusLike: $statusLike, errorMessageLike: $errorMessageLike)';
+  return 'ProductDetailsState(productDetails: $productDetails, statusProductDetails: $statusProductDetails, errorMessageProductDetails: $errorMessageProductDetails, statusLike: $statusLike, errorMessageLike: $errorMessageLike, selectedSizeId: $selectedSizeId, statusAddedProduct: $statusAddedProduct, errorMessageAddedProduct: $errorMessageAddedProduct)';
 }
 
 
@@ -249,7 +255,7 @@ abstract mixin class _$ProductDetailsStateCopyWith<$Res> implements $ProductDeta
   factory _$ProductDetailsStateCopyWith(_ProductDetailsState value, $Res Function(_ProductDetailsState) _then) = __$ProductDetailsStateCopyWithImpl;
 @override @useResult
 $Res call({
- ProductDetailsModel? productDetails, Status statusProductDetails, String? errorMessageProductDetails, Status statusLike, String? errorMessageLike
+ ProductDetailsModel? productDetails, Status statusProductDetails, String? errorMessageProductDetails, Status statusLike, String? errorMessageLike, int? selectedSizeId, Status statusAddedProduct, String? errorMessageAddedProduct
 });
 
 
@@ -266,13 +272,16 @@ class __$ProductDetailsStateCopyWithImpl<$Res>
 
 /// Create a copy of ProductDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? productDetails = freezed,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,Object? statusLike = null,Object? errorMessageLike = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? productDetails = freezed,Object? statusProductDetails = null,Object? errorMessageProductDetails = freezed,Object? statusLike = null,Object? errorMessageLike = freezed,Object? selectedSizeId = freezed,Object? statusAddedProduct = null,Object? errorMessageAddedProduct = freezed,}) {
   return _then(_ProductDetailsState(
 productDetails: freezed == productDetails ? _self.productDetails : productDetails // ignore: cast_nullable_to_non_nullable
 as ProductDetailsModel?,statusProductDetails: null == statusProductDetails ? _self.statusProductDetails : statusProductDetails // ignore: cast_nullable_to_non_nullable
 as Status,errorMessageProductDetails: freezed == errorMessageProductDetails ? _self.errorMessageProductDetails : errorMessageProductDetails // ignore: cast_nullable_to_non_nullable
 as String?,statusLike: null == statusLike ? _self.statusLike : statusLike // ignore: cast_nullable_to_non_nullable
 as Status,errorMessageLike: freezed == errorMessageLike ? _self.errorMessageLike : errorMessageLike // ignore: cast_nullable_to_non_nullable
+as String?,selectedSizeId: freezed == selectedSizeId ? _self.selectedSizeId : selectedSizeId // ignore: cast_nullable_to_non_nullable
+as int?,statusAddedProduct: null == statusAddedProduct ? _self.statusAddedProduct : statusAddedProduct // ignore: cast_nullable_to_non_nullable
+as Status,errorMessageAddedProduct: freezed == errorMessageAddedProduct ? _self.errorMessageAddedProduct : errorMessageAddedProduct // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

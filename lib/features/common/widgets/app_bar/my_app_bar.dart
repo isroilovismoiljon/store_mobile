@@ -30,10 +30,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leadingWidth: 100,
-      title: Text(
-        title,
-        style: AppStyles.appBarTitle
-      ),
+      title: Text(title, style: AppStyles.appBarTitle),
       centerTitle: true,
       bottom: isHaveBottomLine
           ? PreferredSize(
@@ -47,7 +44,19 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             )
           : null,
-
+      actionsPadding: EdgeInsets.only(right: 24.w),
+      actions: [
+        GestureDetector(
+          onTap: () {
+            context.push(Routes.notifications);
+          },
+          child: SvgPicture.asset(
+            AppIcons.bell,
+            width: 24.w,
+            height: 24.h,
+          ),
+        ),
+      ],
     );
   }
 }

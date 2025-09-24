@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_mobile/data/repositories/cart_repository.dart';
 import 'package:store_mobile/data/repositories/category_repository.dart';
 import 'package:store_mobile/data/repositories/notifications_repository.dart';
 import 'package:store_mobile/data/repositories/product_repository.dart';
@@ -22,4 +23,5 @@ final dependencies = [
   Provider(create: (context) => ProductRepository(client: context.read())),
   Provider(create: (context) => NotificationsRepository(client: context.read())),
   Provider(create: (context) => UserRepository(client: context.read())),
+  Provider(create: (context) => CartRepository(client: context.read())),
 ];

@@ -25,4 +25,16 @@ class AppStyles{
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
+  static TextStyle accountItem = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle cartItemTitle = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle cartItemSize = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
 }

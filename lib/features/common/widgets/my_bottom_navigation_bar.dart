@@ -38,13 +38,13 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       'id': 4,
       'title': 'Cart',
       'icon': AppIcons.cart,
-      'route': '',
+      'route': Routes.myCart,
     },
     {
       'id': 5,
       'title': 'Account',
       'icon': AppIcons.user,
-      'route': '',
+      'route': Routes.account,
     },
   ];
 

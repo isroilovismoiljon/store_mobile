@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_mobile/features/account/pages/account_page.dart';
+import 'package:store_mobile/features/cart/pages/my_cart_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
 import 'package:store_mobile/features/notifications/pages/notifications_page.dart';
 import 'package:store_mobile/features/product/pages/product_details_page.dart';
@@ -72,16 +74,20 @@ GoRouter router = GoRouter(
       path: Routes.notifications,
       builder: (context, state) => NotificationsPage(),
     ),
-    // GoRoute(
-    //   path: Routes.saved,
-    //   builder: (context, state) => SavedPage(),
-    // ),
     GoRoute(
       path: Routes.productDetails,
       builder: (context, state) {
         final id = int.parse(state.pathParameters['id']!);
         return ProductDetailsPage(id: id);
       },
+    ),
+    GoRoute(
+      path: Routes.myCart,
+      builder: (context, state) => MyCartPage(),
+    ),
+    GoRoute(
+      path: Routes.account,
+      builder: (context, state) => AccountPage(),
     ),
   ],
 );

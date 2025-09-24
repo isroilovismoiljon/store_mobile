@@ -2,6 +2,7 @@ class AppIcons{
   static const address = "assets/icons/Address.svg";
   static const arrow = "assets/icons/Arrow.svg";
   static const backArrow = "assets/icons/back_arrow.svg";
+  static const rightArrow = "assets/icons/arrow-right.svg";
   static const eye = "assets/icons/Eye.svg";
   static const eyeOff = "assets/icons/eye-off.svg";
   static const warningCircle = "assets/icons/WarningCircle.svg";
@@ -23,5 +24,15 @@ class AppIcons{
   static const user = "assets/icons/User.svg";
   static const star = "assets/icons/star.svg";
   static const bag = "assets/icons/bag.svg";
+  static const minus = "assets/icons/minus.svg";
+  static const plus = "assets/icons/Plus.svg";
+  static const trash = "assets/icons/trash.svg";
+  static const chevronRight = "assets/icons/chevron-right.svg";
+  static const box = "assets/icons/Box.svg";
+  static const details = "assets/icons/Details.svg";
+  static const card = "assets/icons/Card-duotone.svg";
+  static const question = "assets/icons/Question.svg";
+  static const headphones = "assets/icons/Headphones.svg";
+  static const logout = "assets/icons/Logout.svg";
 
 }

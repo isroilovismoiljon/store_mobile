@@ -1,25 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/core/constants/status.dart';
 import 'package:store_mobile/data/models/product/product_details_model.dart';
+import 'package:store_mobile/data/repositories/cart_repository.dart';
 import 'package:store_mobile/data/repositories/product_repository.dart';
-import 'package:store_mobile/data/repositories/user_repository.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_event.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_state.dart';
-
 import '../../../../core/utils/result.dart';
-import '../../../home/managers/home_event.dart';
 
 class ProductDetailsBloc extends Bloc<ProductDetailsEvent, ProductDetailsState> {
   final ProductRepository _productRepository;
-  final UserRepository _userRepository;
+  final CartRepository _cartRepository;
 
-  ProductDetailsBloc({required ProductRepository productRepository, required UserRepository userRepo})
+  ProductDetailsBloc({required CartRepository cartRepository, required ProductRepository productRepository})
     : _productRepository = productRepository,
-      _userRepository = userRepo,
+      _cartRepository = cartRepository,
       super(ProductDetailsState.initial()) {
     on<ProductDetailsGetProductDetails>(_getProductDetails);
     on<ProductDetailsSaveProduct>(_save);
     on<ProductDetailsUnSaveProduct>(_unSave);
+    on<ProductDetailsAddToCartProduct>(_addProductToCart);
   }
 
   Future<void> _getProductDetails(ProductDetailsGetProductDetails events, Emitter<ProductDetailsState> emit) async {
@@ -86,4 +85,16 @@ class ProductDetailsBloc extends Bloc<ProductDetailsEvent, ProductDetailsState> 
     );
   }
 
+  Future<void> _addProductToCart(ProductDetailsAddToCartProduct events, Emitter<ProductDetailsState> emit) async {
+    emit(state.copyWith(statusAddedProduct: Status.loading));
+    final result = await _cartRepository.addProductToCart(
+      productId: events.productId,
+      sizeId: events.sizeId,
+    );
+
+    result.fold(
+      (error) => emit(state.copyWith(statusAddedProduct: Status.error, errorMessageAddedProduct: error.toString())),
+      (value) => emit(state.copyWith(statusAddedProduct: Status.success, errorMessageAddedProduct: null)),
+    );
+  }
 }

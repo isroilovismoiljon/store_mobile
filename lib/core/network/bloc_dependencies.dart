@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_mobile/features/cart/managers/cart_items_bloc.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_bloc.dart';
 import '../../features/home/managers/home_bloc.dart';
 import '../../features/notifications/managers/notification/notifications_bloc.dart';
@@ -26,7 +27,12 @@ final blocDependencies = [
   BlocProvider<ProductDetailsBloc>(
     create: (context) => ProductDetailsBloc(
       productRepository: context.read(),
-      userRepo: context.read(),
+      cartRepository: context.read()
+    ),
+  ),
+  BlocProvider<CartItemsBloc>(
+    create: (context) => CartItemsBloc(
+      cartRepository: context.read(),
     ),
   ),
 ];

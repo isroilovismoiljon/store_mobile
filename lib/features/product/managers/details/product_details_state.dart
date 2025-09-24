@@ -14,6 +14,9 @@ abstract class ProductDetailsState with _$ProductDetailsState {
     required String? errorMessageProductDetails,
     required Status statusLike,
     required String? errorMessageLike,
+    required int? selectedSizeId,
+    required Status statusAddedProduct,
+    required String? errorMessageAddedProduct,
   }) = _ProductDetailsState;
 
   factory ProductDetailsState.initial() => const ProductDetailsState(
@@ -22,5 +25,8 @@ abstract class ProductDetailsState with _$ProductDetailsState {
     errorMessageProductDetails: null,
     statusLike: Status.idle,
     errorMessageLike: null,
+    selectedSizeId: null,
+    statusAddedProduct: Status.idle,
+    errorMessageAddedProduct: null,
   );
 }

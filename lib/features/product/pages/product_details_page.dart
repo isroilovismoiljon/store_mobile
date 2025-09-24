@@ -39,6 +39,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     return double.parse(value.toStringAsFixed(1));
   }
 
+  int? selectedSizeId;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
@@ -88,7 +90,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         ],
                       ),
                       Text(
-                        state.statusProductDetails == Status.success ? state.productDetails!.title : 'Empty',
+                        state.productDetails!.title,
                         style: AppStyles.appBarTitle,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -128,18 +130,30 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             ...List.generate(
                               state.productDetails!.productSizes.length,
                               (index) {
-                                return Container(
-                                  alignment: Alignment.center,
-                                  width: 50.w,
-                                  height: 47.h,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).colorScheme.onPrimary,
-                                    borderRadius: BorderRadius.circular(10.r),
-                                    border: Border.all(color: AppColors.borderColor),
-                                  ),
-                                  child: Text(
-                                    state.productDetails!.productSizes[index].title,
-                                    style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
+                                return GestureDetector(
+                                  onTap: () {
+                                    selectedSizeId = state.productDetails!.productSizes[index].id;
+                                    setState(() {});
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: 50.w,
+                                    height: 47.h,
+                                    decoration: BoxDecoration(
+                                      color: selectedSizeId == state.productDetails!.productSizes[index].id
+                                        ? Theme.of(context).colorScheme.primary
+                                        : Theme.of(context).colorScheme.onPrimary,
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      border: Border.all(color: AppColors.borderColor),
+                                    ),
+                                    child: Text(
+                                      state.productDetails!.productSizes[index].title,
+                                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500,
+                                        color: selectedSizeId == state.productDetails!.productSizes[index].id
+                                            ? Theme.of(context).colorScheme.onPrimary
+                                            : Theme.of(context).colorScheme.primary,
+                                      ),
+                                    ),
                                   ),
                                 );
                               },
@@ -171,28 +185,82 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           ),
                         ],
                       ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: 240.w,
-                        height: 54.h,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          spacing: 10.w,
-                          children: [
-                            SvgPicture.asset(
-                              AppIcons.bag,
-                              width: 24.w,
-                              height: 24.h,
-                            ),
-                            Text(
-                              'Add to Cart',
-                              style: AppStyles.rating.copyWith(color: Theme.of(context).colorScheme.onPrimary),
-                            ),
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          if (selectedSizeId == null) {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Center(
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.onPrimary),
+                                    padding: EdgeInsets.all(15.r),
+                                    constraints: BoxConstraints(minHeight: 100.h, maxWidth: 300.h),
+                                    child: Text(
+                                      "O'zingizga mos o'lchamlardan birini tanlang!",
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.red,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                            return;
+                          }
+                          context.read<ProductDetailsBloc>().add(
+                            ProductDetailsAddToCartProduct(productId: state.productDetails!.id, sizeId: selectedSizeId!),
+                          );
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Center(
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                  decoration: BoxDecoration(color: Theme.of(context).colorScheme.onPrimary),
+                                  padding: EdgeInsets.all(15.r),
+                                  constraints: BoxConstraints(minHeight: 100.h, maxWidth: 300.h),
+                                  child: Text(
+                                    "Maxsulot savatga qo'shildi!",
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 240.w,
+                          height: 54.h,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            spacing: 10.w,
+                            children: [
+                              SvgPicture.asset(
+                                AppIcons.bag,
+                                width: 24.w,
+                                height: 24.h,
+                              ),
+                              Text(
+                                'Add to Cart',
+                                style: AppStyles.rating.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

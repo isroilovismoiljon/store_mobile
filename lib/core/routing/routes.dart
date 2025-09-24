@@ -12,4 +12,6 @@ class Routes {
 
   static String productDetailsWithId({required int productId}) =>
       '/product-details/$productId';
+  static const myCart = '/my-cart';
+  static const account = '/account';
 }

@@ -15,3 +15,9 @@ final class ProductDetailsUnSaveProduct extends ProductDetailsEvent{
   final int id;
   ProductDetailsUnSaveProduct({required this.id});
 }
+
+final class ProductDetailsAddToCartProduct extends ProductDetailsEvent{
+  final int productId;
+  final int sizeId;
+  ProductDetailsAddToCartProduct({required this.productId, required this.sizeId});
+}
