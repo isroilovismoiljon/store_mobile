@@ -34,5 +34,6 @@ class AppIcons{
   static const question = "assets/icons/Question.svg";
   static const headphones = "assets/icons/Headphones.svg";
   static const logout = "assets/icons/Logout.svg";
+  static const visa = "assets/icons/bxl_visa.svg";
 
 }

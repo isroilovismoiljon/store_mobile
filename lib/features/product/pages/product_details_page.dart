@@ -11,14 +11,12 @@ import 'package:store_mobile/features/common/widgets/like.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_bloc.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_event.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_state.dart';
-
 import '../../../core/utils/styles.dart';
 import '../../home/managers/home_bloc.dart';
 import '../../home/managers/home_event.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key, required this.id});
-
   final int id;
 
   @override

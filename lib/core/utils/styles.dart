@@ -1,10 +1,9 @@
 import 'imports.dart';
 
 class AppStyles{
-  static TextStyle s32w500onSurface = TextStyle(
-    // color: Theme.of(context).colorScheme.onSecondary,
+  static TextStyle s10w400surface = TextStyle(
     fontSize: 10.sp,
-    fontWeight: FontWeight.w400
+    fontWeight: FontWeight.w500
   );
   static TextStyle reviews = TextStyle(
     color: AppColors.grayText,

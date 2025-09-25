@@ -121,7 +121,9 @@ class MyCartPage extends StatelessWidget {
                                   ),
                                   CustomButton(
                                     title: 'Go To Checkout',
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      context.push(Routes.paymentMethod);
+                                    },
                                     icon: AppIcons.rightArrow,
                                   ),
                                 ],

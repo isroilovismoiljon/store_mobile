@@ -4,6 +4,7 @@ import 'package:store_mobile/features/cart/pages/my_cart_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
 import 'package:store_mobile/features/notifications/pages/notifications_page.dart';
 import 'package:store_mobile/features/payment/pages/chekout_page.dart';
+import 'package:store_mobile/features/payment/pages/payment_method_page.dart';
 import 'package:store_mobile/features/product/pages/product_details_page.dart';
 import '../../features/product/pages/saved_page.dart';
 import '../utils/imports.dart';
@@ -95,8 +96,8 @@ GoRouter router = GoRouter(
       builder: (context, state) => CheckoutPage(),
     ),
     GoRoute(
-      path: Routes.checkout,
-      builder: (context, state) => CheckoutPage(),
+      path: Routes.paymentMethod,
+      builder: (context, state) => PaymentMethodPage(),
     ),
   ],
 );
