@@ -6,6 +6,7 @@ import 'package:store_mobile/features/notifications/pages/notifications_page.dar
 import 'package:store_mobile/features/payment/pages/chekout_page.dart';
 import 'package:store_mobile/features/payment/pages/payment_method_page.dart';
 import 'package:store_mobile/features/product/pages/product_details_page.dart';
+import 'package:store_mobile/features/settings/pages/notifications_set_page.dart';
 import '../../features/product/pages/saved_page.dart';
 import '../utils/imports.dart';
 
@@ -98,6 +99,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: Routes.paymentMethod,
       builder: (context, state) => PaymentMethodPage(),
+    ),
+    GoRoute(
+      path: Routes.notificationsSettings,
+      builder: (context, state) => NotificationsSetPage(),
     ),
   ],
 );

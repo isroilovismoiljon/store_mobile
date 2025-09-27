@@ -11,15 +11,14 @@ final dependencies = [
   Provider(create: (context) => FlutterSecureStorage()),
   Provider(create: (context) => AuthInterceptor(secureStorage: context.read())),
   Provider(
+    create: (context) => ApiClient(interceptor: context.read(), baseUrl: "http://192.168.0.106:8888/api/v1"),
     // create: (context) => ApiClient(interceptor: context.read(), baseUrl: "http://192.168.10.107:8888/api/v1"),
-    create: (context) => ApiClient(interceptor: context.read(), baseUrl: "http://172.20.10.6:8888/api/v1")
+    // create: (context) => ApiClient(interceptor: context.read(), baseUrl: "http://172.20.10.6:8888/api/v1")
   ),
   Provider(
     create: (context) => AuthenticationRepository(client: context.read(), secureStorage: context.read()),
   ),
-  Provider(
-    create: (context) => CategoryRepository(client: context.read()),
-  ),
+  Provider(create: (context) => CategoryRepository(client: context.read())),
   Provider(create: (context) => ProductRepository(client: context.read())),
   Provider(create: (context) => NotificationsRepository(client: context.read())),
   Provider(create: (context) => UserRepository(client: context.read())),

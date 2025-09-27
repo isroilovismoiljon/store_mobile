@@ -91,6 +91,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         state.productDetails!.title,
                         style: AppStyles.appBarTitle,
                         overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
                       Row(
                         spacing: 2.w,

@@ -23,4 +23,6 @@ class CartItemsBloc extends Bloc<CartItemsEvent, CartItemsState> {
       (value) => emit(state.copyWith(statusCartItem: Status.success, cartItems: value, errorMessageCartItem: null)),
     );
   }
+
+
 }

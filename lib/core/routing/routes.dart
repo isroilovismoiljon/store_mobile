@@ -18,4 +18,5 @@ class Routes {
   static const paymentMethod = '/payment-method';
   static const newCard = '/new-card';
   static const helpCenter = '/help-center';
+  static const notificationsSettings = '/notifications-settings';
 }

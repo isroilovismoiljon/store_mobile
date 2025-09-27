@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
@@ -6,6 +7,10 @@ import 'package:store_mobile/core/utils/colors.dart';
 import 'package:store_mobile/core/utils/icons.dart';
 import 'package:store_mobile/core/utils/styles.dart';
 import 'package:store_mobile/features/cart/managers/cart_items_state.dart';
+import 'package:store_mobile/features/product/managers/details/product_details_bloc.dart';
+import 'package:store_mobile/features/product/managers/details/product_details_event.dart';
+
+import '../managers/cart_items_bloc.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
@@ -56,13 +61,19 @@ class CartItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          state.cartItems!.items[index].title,
-                          style: AppStyles.cartItemTitle,
-                          overflow: TextOverflow.ellipsis,
+                        SizedBox(
+                          width: 190.w,
+                          child: Text(
+                            state.cartItems!.items[index].title,
+                            style: AppStyles.cartItemTitle,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            context.read<ProductDetailsBloc>().add(ProductDetailsAddToCartProduct(productId: state.cartItems!.items[index].id, sizeId: 1));
+                          },
                           child: SvgPicture.asset(
                             AppIcons.trash,
                             width: 16.w,

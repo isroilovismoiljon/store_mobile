@@ -23,30 +23,34 @@ class _CardItemsState extends State<CardItems> {
   }
 
   String cardIcon = AppIcons.visa;
-
   String getCardType(String cardNumber) {
     final cleanNumber = cardNumber.replaceAll(' ', '');
-
-    if (cleanNumber.isEmpty) return "Noma'lum";
+    if (cleanNumber.isEmpty) return AppIcons.visa;
+    ;
 
     if (cleanNumber.startsWith('4')) {
-      cardIcon = AppIcons.visa;
-      return "Visa";
+      return AppIcons.visa;
+        //"Visa";
     } else if (RegExp(r'^(51|52|53|54|55)').hasMatch(cleanNumber)) {
-      return "MasterCard";
+      cardIcon = AppIcons.masterCard;
     } else if (cleanNumber.startsWith('8600')) {
-      return "UzCard";
+      return AppIcons.visa;
+        //"UzCard";
     } else if (cleanNumber.startsWith('9860')) {
-      return "Humo";
+      return AppIcons.visa;
+        //"Humo";
     } else if (cleanNumber.startsWith('34') || cleanNumber.startsWith('37')) {
-      return "American Express";
+      return AppIcons.visa;
+        //"American Express";
     } else if (cleanNumber.startsWith('35')) {
-      return "JCB";
+      return AppIcons.visa;
+        //"JCB";
     } else if (cleanNumber.startsWith('30') || cleanNumber.startsWith('36') || cleanNumber.startsWith('38')) {
-      return "Diners Club";
+      return AppIcons.visa;
+      //"Diners Club";
     }
-    AppIcons.visa;
-    return "Noma'lum karta";
+    cardIcon = AppIcons.visa;
+    return cardIcon;
   }
 
   // void main() {
@@ -65,7 +69,7 @@ class _CardItemsState extends State<CardItems> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SvgPicture.asset(
-            AppIcons.visa,
+            getCardType(widget.cardNumber),
             width: 37.w,
             height: 12.h,
             fit: BoxFit.cover,

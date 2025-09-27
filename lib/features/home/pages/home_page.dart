@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Scaffold(
+          // resizeToAvoidBottomInset: true,
           extendBody: true,
           body: Padding(
             padding: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 86.h),

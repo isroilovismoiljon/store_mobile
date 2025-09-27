@@ -52,14 +52,20 @@ class MyCartPage extends StatelessWidget {
                         : Column(
                             spacing: 14.h,
                             children: [
-                              ...List.generate(
-                                state.cartItems!.items.length,
-                                (index) {
-                                  return CartItem(
-                                    state: state,
-                                    index: index,
-                                  );
-                                },
+                              SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    ...List.generate(
+                                      state.cartItems!.items.length,
+                                          (index) {
+                                        return CartItem(
+                                          state: state,
+                                          index: index,
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
                               Column(
                                 spacing: 15.h,
