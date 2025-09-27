@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_mobile/features/common/widgets/app_bar/my_app_bar.dart';
 import 'package:store_mobile/features/common/widgets/my_bottom_navigation_bar.dart';
-import 'package:store_mobile/features/settings/pages/notifications_setting_item.dart';
+import 'package:store_mobile/features/settings/widgets/notifications_setting_item.dart';
 
 import '../../../core/utils/colors.dart';
 

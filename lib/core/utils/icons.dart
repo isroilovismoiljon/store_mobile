@@ -36,5 +36,10 @@ class AppIcons{
   static const logout = "assets/icons/Logout.svg";
   static const visa = "assets/icons/bxl_visa.svg";
   static const masterCard = "assets/icons/master_card.svg";
+  static const whatsapp = "assets/icons/Whatsapp.svg";
+  static const web = "assets/icons/Web.svg";
+  static const facebook = "assets/icons/Facebook (1).svg";
+  static const twitter = "assets/icons/Twitter.svg";
+  static const instagram = "assets/icons/Instagram (1).svg";
 
 }

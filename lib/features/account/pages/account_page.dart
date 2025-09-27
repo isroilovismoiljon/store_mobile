@@ -72,7 +72,9 @@ class AccountPage extends StatelessWidget {
             AccountItem(
               mainIcon: AppIcons.headphones,
               title: 'Help Center',
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.helpCenter);
+              },
             ),
             BigDivider(),
             AccountItem(
