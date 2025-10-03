@@ -13,7 +13,7 @@ import 'package:store_mobile/features/cart/managers/cart_items_bloc.dart';
 import 'package:store_mobile/features/cart/managers/cart_items_event.dart';
 import 'package:store_mobile/features/cart/managers/cart_items_state.dart';
 import 'package:store_mobile/features/cart/widgets/cart_item.dart';
-import 'package:store_mobile/features/common/widgets/app_bar/my_app_bar.dart';
+import 'package:store_mobile/features/common/widgets/my_app_bar.dart';
 import 'package:store_mobile/features/common/widgets/empty_page.dart';
 import 'package:store_mobile/features/common/widgets/my_bottom_navigation_bar.dart';
 

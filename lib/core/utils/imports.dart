@@ -1,7 +1,7 @@
 export 'package:flutter/gestures.dart';
 export 'package:store_mobile/core/utils/icons.dart';
-export 'package:store_mobile/features/common/widgets/textfield/custom_text_field.dart';
-export 'package:store_mobile/features/common/widgets/button/custom_button.dart';
+export 'package:store_mobile/features/common/widgets/custom_text_field.dart';
+export 'package:store_mobile/features/common/widgets/custom_button.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:go_router/go_router.dart';

@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:store_mobile/core/constants/status.dart';
 import 'package:store_mobile/core/utils/colors.dart';
 import 'package:store_mobile/core/utils/icons.dart';
-import 'package:store_mobile/features/common/widgets/app_bar/my_app_bar.dart';
+import 'package:store_mobile/features/common/widgets/my_app_bar.dart';
 import 'package:store_mobile/features/common/widgets/like.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_bloc.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_event.dart';

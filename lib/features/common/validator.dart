@@ -26,6 +26,7 @@ class Validator {
     }
     return 'ok';
   }
+
   static String validateFullName(String password) {
     if (password.isEmpty) {
       return "Required";

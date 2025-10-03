@@ -5,7 +5,7 @@ import 'package:store_mobile/core/utils/colors.dart';
 import 'package:store_mobile/core/utils/icons.dart';
 import 'package:store_mobile/features/account/widgets/big_divider.dart';
 import 'package:store_mobile/features/account/widgets/account_item.dart';
-import 'package:store_mobile/features/common/widgets/app_bar/my_app_bar.dart';
+import 'package:store_mobile/features/common/widgets/my_app_bar.dart';
 import 'package:store_mobile/features/common/widgets/my_bottom_navigation_bar.dart';
 
 import '../../common/widgets/dialog/warning_dialog.dart';
@@ -32,7 +32,9 @@ class AccountPage extends StatelessWidget {
             AccountItem(
               mainIcon: AppIcons.details,
               title: 'My Details',
-              onTap: () {},
+              onTap: () {
+                context.push(Routes.myDetails);
+              },
             ),
             Divider(
               color: AppColors.borderColor,

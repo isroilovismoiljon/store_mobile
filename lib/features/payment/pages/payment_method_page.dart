@@ -1,6 +1,6 @@
 import 'package:store_mobile/core/utils/imports.dart';
 import 'package:store_mobile/core/utils/styles.dart';
-import 'package:store_mobile/features/common/widgets/app_bar/my_app_bar.dart';
+import 'package:store_mobile/features/common/widgets/my_app_bar.dart';
 import 'package:store_mobile/features/payment/widgets/card_items.dart';
 
 class PaymentMethodPage extends StatelessWidget {

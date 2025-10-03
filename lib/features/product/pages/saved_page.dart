@@ -7,7 +7,7 @@ import 'package:store_mobile/features/common/widgets/empty_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
 import 'package:store_mobile/features/home/managers/home_state.dart';
 import '../../../core/constants/status.dart';
-import '../../common/widgets/app_bar/my_app_bar.dart';
+import '../../common/widgets/my_app_bar.dart';
 import '../widgets/saved_product.dart';
 
 class SavedPage extends StatelessWidget {

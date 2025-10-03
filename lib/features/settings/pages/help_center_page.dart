@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_mobile/core/utils/icons.dart';
-import 'package:store_mobile/features/common/widgets/app_bar/my_app_bar.dart';
+import 'package:store_mobile/features/common/widgets/my_app_bar.dart';
 import 'package:store_mobile/features/common/widgets/my_bottom_navigation_bar.dart';
-import 'package:store_mobile/features/settings/pages/help_center_item.dart';
+import 'package:store_mobile/features/settings/widgets/help_center_item.dart';
 
 class HelpCenterPage extends StatelessWidget {
   const HelpCenterPage({super.key});
