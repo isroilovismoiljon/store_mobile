@@ -14,9 +14,7 @@ class _MyDetailsPageState extends State<MyDetailsPage> {
   final fullNameController = TextEditingController();
   final emailController = TextEditingController();
   final birthdayController = TextEditingController();
-  final genderController = TextEditingController();
   final phoneNumberController = TextEditingController();
-
   String? selectedGender;
 
   @override
