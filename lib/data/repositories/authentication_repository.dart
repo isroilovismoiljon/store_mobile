@@ -1,3 +1,5 @@
+import 'package:store_mobile/data/models/auth/forgot_password_model.dart';
+
 import '../../core/utils/imports.dart';
 
 class AuthenticationRepository {
@@ -38,6 +40,45 @@ class AuthenticationRepository {
         await _secureStorage.write(key: 'login', value: model.login);
         await _secureStorage.write(key: 'password', value: model.password);
         return Result.ok(token);
+      },
+    );
+  }
+
+  Future<Result<void>> sendEmail(ForgotPasswordModel model) async {
+    var result = await _client.post<Map<String, dynamic>>(
+      '/auth/reset-password/email',
+      data: model.toJsonOnlyEmail(),
+    );
+    return result.fold(
+      (error) => Result.error(error),
+          (value)async {
+        return Result.ok(null);
+      },
+    );
+  }
+
+  Future<Result<bool>> verify(ForgotPasswordModel model) async {
+    var result = await _client.post<Map<String, dynamic>>(
+      '/auth/reset-password/verify',
+      data: model.toJsonVerify(),
+    );
+    return result.fold(
+      (error) => Result.error(error),
+          (value)async {
+        return Result.ok(true);
+      },
+    );
+  }
+
+  Future<Result<bool>> reset(ForgotPasswordModel model) async {
+    var result = await _client.post<Map<String, dynamic>>(
+      '/auth/reset-password/reset',
+      data: model.toJsonReset(),
+    );
+    return result.fold(
+      (error) => Result.error(error),
+          (value)async {
+        return Result.ok(true);
       },
     );
   }

@@ -20,4 +20,5 @@ class Routes {
   static const helpCenter = '/help-center';
   static const notificationsSettings = '/notifications-settings';
   static const myDetails = '/my-details';
+  static const newAddress = '/new-address';
 }

@@ -41,5 +41,7 @@ class AppIcons{
   static const facebook = "assets/icons/Facebook (1).svg";
   static const twitter = "assets/icons/Twitter.svg";
   static const instagram = "assets/icons/Instagram (1).svg";
+  static const cancel = "assets/icons/Cancel.svg";
+  static const locationFilled = "assets/icons/Location-filled.svg";
 
 }

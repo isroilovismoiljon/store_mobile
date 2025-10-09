@@ -9,16 +9,24 @@ class MyDetailsBloc extends Bloc<MyDetailsEvent, MyDetailsState> {
   final UserRepository _userRepository;
 
   MyDetailsBloc({required UserRepository userRepository})
-      : _userRepository = userRepository,
-        super(MyDetailsState.initial());
-
+    : _userRepository = userRepository,
+      super(MyDetailsState.initial()){
+    on<MyDetailsUpdateProfile>(_updateProfile);
+  }
 
   Future<void> _updateProfile(MyDetailsUpdateProfile event, Emitter<MyDetailsState> emit) async {
     emit(state.copyWith(statusMyDetails: Status.loading));
-    final result = await _userRepository.updateProfile(model: UpdateUserModel(gender: 'Male',
-        fullName: "Isroilov Ismoiljon",
-        email: 'string@abc.com',
-        phoneNumber: '997979898',
-        birthDate: '2003-01-01'));
+    final result = await _userRepository.updateProfile(
+      model: event.user,
+    );
+
+    result.fold(
+      (error) {
+        emit(state.copyWith(statusMyDetails: Status.error, errorMessageMyDetails: error.toString()));
+      },
+      (value) {
+        emit(state.copyWith(statusMyDetails: Status.success, errorMessageMyDetails: null));
+      },
+    );
   }
 }

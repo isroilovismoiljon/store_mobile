@@ -32,6 +32,10 @@ class AppStyles{
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle bottomSheet = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle cartItemSize = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,

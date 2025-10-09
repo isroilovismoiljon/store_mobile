@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_mobile/features/account/pages/account_page.dart';
+import 'package:store_mobile/features/address/pages/new_address.dart';
+import 'package:store_mobile/features/settings/pages/account_page.dart';
 import 'package:store_mobile/features/cart/pages/my_cart_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
 import 'package:store_mobile/features/notifications/pages/notifications_page.dart';
@@ -9,11 +10,12 @@ import 'package:store_mobile/features/product/pages/product_details_page.dart';
 import 'package:store_mobile/features/settings/pages/help_center_page.dart';
 import 'package:store_mobile/features/settings/pages/my_details_page.dart';
 import 'package:store_mobile/features/settings/pages/notifications_set_page.dart';
+import '../../features/auth/managers/forgot_password/forgot_password_bloc.dart';
 import '../../features/product/pages/saved_page.dart';
 import '../utils/imports.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: Routes.home,
+  initialLocation: Routes.newAddress,
   routes: <RouteBase>[
     // GoRoute(
     //   path: Routes.home,
@@ -33,8 +35,8 @@ GoRouter router = GoRouter(
     ),
     ShellRoute(
       builder: (context, state, child) {
-        return ChangeNotifierProvider(
-          create: (_) => ForgotPasswordViewModel(),
+        return BlocProvider(
+          create: (_) => ForgotPasswordBloc(authenticationRepository: context.read()),
           child: child,
         );
       },
@@ -113,6 +115,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: Routes.myDetails,
       builder: (context, state) => MyDetailsPage(),
+    ),
+    GoRoute(
+      path: Routes.newAddress,
+      builder: (context, state) => NewAddress(),
     ),
   ],
 );

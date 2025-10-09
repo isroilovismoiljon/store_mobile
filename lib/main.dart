@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
           child: Builder(
             builder: (context) {
               return MaterialApp.router(
+                debugShowMaterialGrid: false,
                 theme: AppThemes.light,
                 darkTheme: AppThemes.dark,
                 themeMode: context.watch<ThemeViewModel>().mode,
