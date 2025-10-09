@@ -1,17 +1,17 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:store_mobile/core/utils/imports.dart';
-import 'package:store_mobile/features/address/pages/custom_bottom_sheet.dart';
+import 'package:store_mobile/features/address/widgets/custom_bottom_sheet.dart';
 import 'package:store_mobile/features/common/widgets/my_app_bar.dart';
 
-class NewAddress extends StatefulWidget {
-  const NewAddress({super.key});
+class NewAddressPage extends StatefulWidget {
+  const NewAddressPage({super.key});
 
   @override
-  State<NewAddress> createState() => _NewAddressState();
+  State<NewAddressPage> createState() => _NewAddressPageState();
 }
 
-class _NewAddressState extends State<NewAddress> with TickerProviderStateMixin {
+class _NewAddressPageState extends State<NewAddressPage> with TickerProviderStateMixin {
   final controller = MapController();
 
   @override

@@ -3,7 +3,10 @@ import 'package:store_mobile/data/repositories/cart_repository.dart';
 import 'package:store_mobile/data/repositories/category_repository.dart';
 import 'package:store_mobile/data/repositories/notifications_repository.dart';
 import 'package:store_mobile/data/repositories/product_repository.dart';
+import 'package:store_mobile/data/repositories/review_repository.dart';
 import 'package:store_mobile/data/repositories/user_repository.dart';
+import '../../data/repositories/address_repository.dart';
+import '../../data/repositories/card_repository.dart';
 import '../utils/imports.dart';
 
 final dependencies = [
@@ -21,5 +24,8 @@ final dependencies = [
   Provider(create: (context) => ProductRepository(client: context.read())),
   Provider(create: (context) => NotificationsRepository(client: context.read())),
   Provider(create: (context) => UserRepository(client: context.read())),
+  Provider(create: (context) => AddressRepository(client: context.read())),
   Provider(create: (context) => CartRepository(client: context.read())),
+  Provider(create: (context) => CardRepository(client: context.read())),
+  Provider(create: (context) => ReviewRepository(client: context.read())),
 ];

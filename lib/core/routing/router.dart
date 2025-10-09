@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_mobile/features/address/pages/new_address.dart';
+import 'package:store_mobile/features/address/pages/new_address_page.dart';
 import 'package:store_mobile/features/settings/pages/account_page.dart';
 import 'package:store_mobile/features/cart/pages/my_cart_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
@@ -118,7 +118,7 @@ GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.newAddress,
-      builder: (context, state) => NewAddress(),
+      builder: (context, state) => NewAddressPage(),
     ),
   ],
 );

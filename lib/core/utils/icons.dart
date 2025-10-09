@@ -43,5 +43,6 @@ class AppIcons{
   static const instagram = "assets/icons/Instagram (1).svg";
   static const cancel = "assets/icons/Cancel.svg";
   static const locationFilled = "assets/icons/Location-filled.svg";
+  static const location = "assets/icons/Location.svg";
 
 }
