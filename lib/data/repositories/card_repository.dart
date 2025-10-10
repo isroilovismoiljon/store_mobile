@@ -17,7 +17,7 @@ class CardRepository {
     );
   }
 
-  Future<Result<void>> postCardAdd(AddCardModel data) async {
+  Future<Result<void>> addCard(AddCardModel data) async {
     var response = await _client.post("/cards/create", data: data.toJson());
     return response.fold(
           (error) => Result.error(error),

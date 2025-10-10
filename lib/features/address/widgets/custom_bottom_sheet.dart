@@ -1,10 +1,10 @@
+import 'package:store_mobile/features/address/widgets/custom_text_field_without_validate.dart';
 import 'package:store_mobile/core/utils/imports.dart';
 import '../../../core/utils/styles.dart';
 
 class CustomBottomSheet extends StatefulWidget {
-  const CustomBottomSheet({
-    super.key, required this.addressOptions
-  });
+  const CustomBottomSheet({super.key, required this.addressOptions});
+
   final List addressOptions;
 
   @override
@@ -12,7 +12,8 @@ class CustomBottomSheet extends StatefulWidget {
 }
 
 class _CustomBottomSheetState extends State<CustomBottomSheet> {
-
+  final addressNicknameController = TextEditingController();
+  final fullAddressController = TextEditingController();
   bool defaultAddress = false;
   String selectedAddress = 'Home';
 
@@ -39,7 +40,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
                 style: AppStyles.bottomSheet,
               ),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.of(context, rootNavigator: true).pop();
                 },
                 child: SvgPicture.asset(
@@ -94,39 +95,10 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
               ),
             ],
           ),
-          Column(
-            spacing: 4.h,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Full Address',
-                style: AppStyles.rating,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter your full address...',
-                  constraints: BoxConstraints(maxHeight: 52.h),
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(
-                      color: AppColors.borderColor.withValues(alpha: 0.5),
-                      width: 1.5,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(
-                      color: AppColors.borderColor.withValues(alpha: 0.5),
-                      width: 1.5,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+          CustomTextFieldWithoutValidate(
+            label: 'Full Address',
+            hint: 'Enter your full address...',
+            controller: addressNicknameController,
           ),
           Row(
             spacing: 8.w,

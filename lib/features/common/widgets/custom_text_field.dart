@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../../../core/utils/imports.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -7,12 +9,16 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     required this.controller,
     required this.onValidChanged,
+    this.validator,
+    this.formatter = const []
   });
 
   final String label;
   final String hintText;
   final TextEditingController controller;
   final ValueChanged<bool> onValidChanged;
+  final String? Function(String?)? validator;
+  final List<TextInputFormatter> formatter;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -76,6 +82,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     });
     widget.onValidChanged(isValid);
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -88,8 +95,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fontWeight: FontWeight.w500,
           ),
         ),
-        TextField(
+        TextFormField(
           controller: widget.controller,
+          inputFormatters: [],
           onChanged: _validate,
           style: TextStyle(color: Colors.black),
           obscureText: !widget.label.contains('Password') ? false : (passwordIcon == AppIcons.eyeOff ? true : false),

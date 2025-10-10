@@ -77,7 +77,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           builder: (context) => SuccessDialog(
                             title: 'Password Changed!',
                             subTitle: 'You can now use your new password to login to your account.',
-                            buttonText: 'Login',
+                            buttonText: 'Login', buttonRouteName: Routes.login,
                           ),
                         )
                       : null;

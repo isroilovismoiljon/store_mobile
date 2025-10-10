@@ -6,11 +6,13 @@ class SuccessDialog extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.buttonText,
+    required this.buttonRouteName,
   });
 
   final String title;
   final String subTitle;
   final String buttonText;
+  final String buttonRouteName;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class SuccessDialog extends StatelessWidget {
             CustomButton(
               title: buttonText,
               onPressed: () {
-                context.go(Routes.login);
+                context.go(buttonRouteName);
               },
             ),
           ],

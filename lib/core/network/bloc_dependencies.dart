@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_mobile/data/repositories/address_repository.dart';
 import 'package:store_mobile/data/repositories/user_repository.dart';
+import 'package:store_mobile/features/address/managers/address_bloc.dart';
 import 'package:store_mobile/features/cart/managers/cart_items_bloc.dart';
 import 'package:store_mobile/features/product/managers/details/product_details_bloc.dart';
 import 'package:store_mobile/features/settings/managers/my_details_bloc.dart';
@@ -40,6 +42,11 @@ final blocDependencies = [
   BlocProvider<MyDetailsBloc>(
     create: (context) => MyDetailsBloc(
       userRepository: UserRepository(client: context.read())
+    ),
+  ),
+  BlocProvider<AddressBloc>(
+    create: (context) => AddressBloc(
+      addressRepository: AddressRepository(client: context.read())
     ),
   ),
 ];
