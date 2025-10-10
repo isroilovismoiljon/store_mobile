@@ -172,37 +172,6 @@ class _NewCardPageState extends State<NewCardPage> {
                   );
                 } : (){},
               ),
-              TextButtonPopular(
-                title: local.add_card,
-                onPressed: emailValid && expiryValid && cvcValid
-                    ? () {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: true,
-                          builder: (context) {
-                            return ShowDiologModul(
-                              title1: local.congratulations,
-                              title2: local.your_new_card_been_added,
-                              titleButton: local.thanks,
-                              onPressed: () {
-                                context.pop();
-                                context.go(Routers.card);
-                              },
-                            );
-                          },
-                        );
-                        context.read<CardBloc>().add(
-                          CardAddEvent(
-                            AddCatdModel(
-                              cardNumber: numberController.text,
-                              expiryDate: convertExpiryDate(dateController.text),
-                              securityCode: codeController.text,
-                            ),
-                          ),
-                        );
-                      }
-                    : null,
-              ),
             ],
           ),
         ),
