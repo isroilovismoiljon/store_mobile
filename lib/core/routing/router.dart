@@ -15,12 +15,12 @@ import '../../features/product/pages/saved_page.dart';
 import '../utils/imports.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: Routes.newAddress,
+  initialLocation: Routes.faqs,
   routes: <RouteBase>[
     // GoRoute(
     //   path: Routes.home,
     //   builder: (context, state) => HomePage(),
-    // ),
+    // ), // Pastroqda shellRoute orqali chaqirildi
     GoRoute(
       path: Routes.splash,
       builder: (context, state) => SplashPage(),

@@ -21,4 +21,5 @@ class Routes {
   static const notificationsSettings = '/notifications-settings';
   static const myDetails = '/my-details';
   static const newAddress = '/new-address';
+  static const faqs = '/faqs';
 }
