@@ -49,118 +49,120 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 appBar: MyAppBar(
                   title: 'Details',
                 ),
-                body: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.w),
-                  child: Column(
-                    spacing: 12.h,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.r),
-                            child: Image.network(
-                              state.productDetails!.productImages[0].image,
-                              width: double.infinity,
-                              height: 369.h,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.topCenter,
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Like(
-                              isLiked: state.productDetails!.isLiked,
-                              id: widget.id,
-                              containerSize: 48,
-                              iconSize: 25,
-                              onTap: () {
-                                if (state.productDetails!.isLiked) {
-                                  context.read<ProductDetailsBloc>().add(ProductDetailsUnSaveProduct(id: widget.id));
-                                } else {
-                                  context.read<ProductDetailsBloc>().add(ProductDetailsSaveProduct(id: widget.id));
-                                }
-                                context.read<HomeBloc>().add(HomeEventGetProducts());
-                                setState(() {});
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        state.productDetails!.title,
-                        style: AppStyles.appBarTitle,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                      Row(
-                        spacing: 2.w,
-                        children: [
-                          SvgPicture.asset(
-                            AppIcons.star,
-                            width: 19.w,
-                            height: 18.h,
-                          ),
-                          Text(
-                            '${roundToSingleDecimal(state.productDetails!.rating)}/5',
-                            style: AppStyles.rating,
-                          ),
-                          Text(
-                            '(${state.productDetails!.reviewsCount} reviews)',
-                            style: AppStyles.reviews,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        state.productDetails!.description,
-                        style: AppStyles.productDescription,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 3,
-                      ),
-                      Text(
-                        'Choose size',
-                        style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
-                      ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          spacing: 10.w,
+                body: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24.w),
+                    child: Column(
+                      spacing: 12.h,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
                           children: [
-                            ...List.generate(
-                              state.productDetails!.productSizes.length,
-                              (index) {
-                                return GestureDetector(
-                                  onTap: () {
-                                    selectedSizeId = state.productDetails!.productSizes[index].id;
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: 50.w,
-                                    height: 47.h,
-                                    decoration: BoxDecoration(
-                                      color: selectedSizeId == state.productDetails!.productSizes[index].id
-                                        ? Theme.of(context).colorScheme.primary
-                                        : Theme.of(context).colorScheme.onPrimary,
-                                      borderRadius: BorderRadius.circular(10.r),
-                                      border: Border.all(color: AppColors.borderColor),
-                                    ),
-                                    child: Text(
-                                      state.productDetails!.productSizes[index].title,
-                                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500,
-                                        color: selectedSizeId == state.productDetails!.productSizes[index].id
-                                            ? Theme.of(context).colorScheme.onPrimary
-                                            : Theme.of(context).colorScheme.primary,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10.r),
+                              child: Image.network(
+                                state.productDetails!.productImages[0].image,
+                                width: double.infinity,
+                                height: 369.h,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topCenter,
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Like(
+                                isLiked: state.productDetails!.isLiked,
+                                id: widget.id,
+                                containerSize: 48,
+                                iconSize: 25,
+                                onTap: () {
+                                  if (state.productDetails!.isLiked) {
+                                    context.read<ProductDetailsBloc>().add(ProductDetailsUnSaveProduct(id: widget.id));
+                                  } else {
+                                    context.read<ProductDetailsBloc>().add(ProductDetailsSaveProduct(id: widget.id));
+                                  }
+                                  context.read<HomeBloc>().add(HomeEventGetProducts());
+                                  setState(() {});
+                                },
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        Text(
+                          state.productDetails!.title,
+                          style: AppStyles.appBarTitle,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                        Row(
+                          spacing: 2.w,
+                          children: [
+                            SvgPicture.asset(
+                              AppIcons.star,
+                              width: 19.w,
+                              height: 18.h,
+                            ),
+                            Text(
+                              '${roundToSingleDecimal(state.productDetails!.rating)}/5',
+                              style: AppStyles.rating,
+                            ),
+                            Text(
+                              '(${state.productDetails!.reviewsCount} reviews)',
+                              style: AppStyles.reviews,
+                            ),
+                          ],
+                        ),
+                        Text(
+                          state.productDetails!.description,
+                          style: AppStyles.productDescription,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                        ),
+                        Text(
+                          'Choose size',
+                          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            spacing: 10.w,
+                            children: [
+                              ...List.generate(
+                                state.productDetails!.productSizes.length,
+                                (index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      selectedSizeId = state.productDetails!.productSizes[index].id;
+                                      setState(() {});
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: 50.w,
+                                      height: 47.h,
+                                      decoration: BoxDecoration(
+                                        color: selectedSizeId == state.productDetails!.productSizes[index].id
+                                          ? Theme.of(context).colorScheme.primary
+                                          : Theme.of(context).colorScheme.onPrimary,
+                                        borderRadius: BorderRadius.circular(10.r),
+                                        border: Border.all(color: AppColors.borderColor),
+                                      ),
+                                      child: Text(
+                                        state.productDetails!.productSizes[index].title,
+                                        style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500,
+                                          color: selectedSizeId == state.productDetails!.productSizes[index].id
+                                              ? Theme.of(context).colorScheme.onPrimary
+                                              : Theme.of(context).colorScheme.primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 bottomNavigationBar: Container(

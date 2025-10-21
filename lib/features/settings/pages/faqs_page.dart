@@ -43,7 +43,7 @@ class _FaqsPageState extends State<FaqsPage> {
                       height: 36.h,
                       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 7.h),
                       decoration: BoxDecoration(
-                        color:isActive ? AppColors.black : Color(0xFFFFFFFF),
+                        color: isActive ? AppColors.black : Color(0xFFFFFFFF),
                         borderRadius: BorderRadius.circular(10.r),
                         border: BoxBorder.all(color: AppColors.borderColor),
                       ),
@@ -57,7 +57,13 @@ class _FaqsPageState extends State<FaqsPage> {
                 },
               ),
             ),
-            CustomTextField(controller: searchController, label: '', hintText: 'Search for questions...', onValidChanged: (bool value) {  },),
+            CustomTextField(
+              controller: searchController,
+              label: '',
+              hintText: 'Search for questions...',
+              onValidChanged: (bool value) {},
+              prefixIcon: AppIcons.search,
+            ),
             Expanded(
               child: ListView.separated(
                 itemCount: faqsCategories.length,
@@ -84,7 +90,9 @@ class _FaqsPageState extends State<FaqsPage> {
                       title: Text('Question', style: AppStyles.rating),
                       childrenPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
                       children: [
-                        Text('Answer', style: AppStyles.rating),
+                        Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text('Answer', style: AppStyles.productDescription.copyWith(fontSize: 12.sp))),
                       ],
                     ),
                   );

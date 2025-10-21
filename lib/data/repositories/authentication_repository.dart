@@ -34,7 +34,6 @@ class AuthenticationRepository {
     return result.fold(
       (error) => Result.error(error),
           (value)async {
-
         final String token = value['accessToken'];
         await _secureStorage.write(key: 'token', value: token);
         await _secureStorage.write(key: 'login', value: model.login);

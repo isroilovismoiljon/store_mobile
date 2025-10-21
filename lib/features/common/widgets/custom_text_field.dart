@@ -10,7 +10,8 @@ class CustomTextField extends StatefulWidget {
     required this.controller,
     required this.onValidChanged,
     this.validator,
-    this.formatter = const []
+    this.formatter = const [],
+    this.prefixIcon
   });
 
   final String label;
@@ -19,6 +20,7 @@ class CustomTextField extends StatefulWidget {
   final ValueChanged<bool> onValidChanged;
   final String? Function(String?)? validator;
   final List<TextInputFormatter> formatter;
+  final String? prefixIcon;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -103,6 +105,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
           obscureText: !widget.label.contains('Password') ? false : (passwordIcon == AppIcons.eyeOff ? true : false),
           obscuringCharacter: '*',
           decoration: InputDecoration(
+            prefixIcon: widget.prefixIcon != null ? IconButton(
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              iconSize: 24.r,
+              icon: SvgPicture.asset(widget.prefixIcon!),
+            ) : null,
             constraints: BoxConstraints(maxHeight: 52.h),
             suffixIcon: fieldIcon != null && widget.controller.text.isNotEmpty
                 ? IconButton(

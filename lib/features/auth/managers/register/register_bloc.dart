@@ -9,7 +9,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState>{
   final AuthenticationRepository _authenticationRepository;
   RegisterBloc({required AuthenticationRepository authenticationRepository}) :
         _authenticationRepository = authenticationRepository,
-        super(RegisterState.initial());
+        super(RegisterState.initial()){
+    on<RegisterRequestEvent>(_register);
+  }
   
   Future<void> _register(RegisterRequestEvent event, Emitter<RegisterState> emit)async{
     emit(state.copyWith(statusRegister: Status.loading));

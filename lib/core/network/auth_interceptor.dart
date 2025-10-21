@@ -7,7 +7,7 @@ class AuthInterceptor extends Interceptor {
 
   final dio = Dio(
     BaseOptions(
-      baseUrl: "http://192.168.11.82:8888/api/v1",
+      baseUrl: "http://192.168.11.197:8888/api/v1",
       // baseUrl: "http://172.20.10.6:8888/api/v1",
       // validateStatus: (status) => true,
     ),
@@ -15,11 +15,11 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    // var token = await secureStorage.read(key: 'token');
-    // if (token != null) {
-      // options.headers['Authorization'] = 'Bearer $token';
-      options.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlzcm9pbG92QGdtYWlsLmNvbSIsImp0aSI6ImNkODNmM2U2LWJiOGYtNGZhNS04OWE5LTZjODA3NTUyNTk1MCIsInVzZXJpZCI6IjE3IiwiZXhwIjoxODUyNzM0NjI3LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.qn8y9L8vQngTOyGbDBX1lyx9hc9ynIGEn07PYjaoQOw';
-    // }
+    var token = await secureStorage.read(key: 'token');
+    if (token != null) {
+      options.headers['Authorization'] = 'Bearer $token';
+      // options.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlzcm9pbG92QGdtYWlsLmNvbSIsImp0aSI6ImNkODNmM2U2LWJiOGYtNGZhNS04OWE5LTZjODA3NTUyNTk1MCIsInVzZXJpZCI6IjE3IiwiZXhwIjoxODUyNzM0NjI3LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.qn8y9L8vQngTOyGbDBX1lyx9hc9ynIGEn07PYjaoQOw';
+    }
     super.onRequest(options, handler);
   }
 

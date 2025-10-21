@@ -26,7 +26,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       'id': 2,
       'title': 'Search',
       'icon': AppIcons.search,
-      'route': '',
+      'route': Routes.search,
     },
     {
       'id': 3,
@@ -59,7 +59,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         border: Border(
           top: BorderSide(
             color: AppColors.borderColor,
-            width: 1,
+            width: 1.w,
           ),
         ),
       ),

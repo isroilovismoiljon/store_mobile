@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_mobile/features/address/pages/new_address_page.dart';
+import 'package:store_mobile/features/home/pages/search_page.dart';
 import 'package:store_mobile/features/settings/pages/account_page.dart';
 import 'package:store_mobile/features/cart/pages/my_cart_page.dart';
 import 'package:store_mobile/features/home/managers/home_bloc.dart';
@@ -12,10 +13,11 @@ import 'package:store_mobile/features/settings/pages/my_details_page.dart';
 import 'package:store_mobile/features/settings/pages/notifications_set_page.dart';
 import '../../features/auth/managers/forgot_password/forgot_password_bloc.dart';
 import '../../features/product/pages/saved_page.dart';
+import '../../features/settings/pages/faqs_page.dart';
 import '../utils/imports.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: Routes.faqs,
+  initialLocation: Routes.splash,
   routes: <RouteBase>[
     // GoRoute(
     //   path: Routes.home,
@@ -75,6 +77,10 @@ GoRouter router = GoRouter(
           path: Routes.saved,
           builder: (context, state) => SavedPage(),
         ),
+        GoRoute(
+          path: Routes.search,
+          builder: (context, state) => SearchPage(),
+        ),
       ],
     ),
     GoRoute(
@@ -119,6 +125,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: Routes.newAddress,
       builder: (context, state) => NewAddressPage(),
+    ),
+    GoRoute(
+      path: Routes.faqs,
+      builder: (context, state) => FaqsPage(),
     ),
   ],
 );

@@ -9,21 +9,21 @@ class Validator {
     if (password.isEmpty) {
       return "Password is required";
     }
-    if (password.length < 8) {
-      return "Must be at least 8 characters long";
+    if (password.length < 4) {
+      return "Must be at least 4 characters long";
     }
-    if (password.length > 20) {
+    if (password.length > 50) {
       return "Must be at most 50 characters long";
     }
-    if (!RegExp(r'[A-Za-z]').hasMatch(password)) {
-      return "Must contain at least one letter";
-    }
-    if (!RegExp(r'[0-9]').hasMatch(password)) {
-      return "Must contain at least one number";
-    }
-    if (!RegExp(r'[!@#\$%^&*(),.?":{}|<>]').hasMatch(password)) {
-      return "Must contain at least one special character";
-    }
+    // if (!RegExp(r'[A-Za-z]').hasMatch(password)) {
+    //   return "Must contain at least one letter";
+    // }
+    // if (!RegExp(r'[0-9]').hasMatch(password)) {
+    //   return "Must contain at least one number";
+    // }
+    // if (!RegExp(r'[!@#\$%^&*(),.?":{}|<>]').hasMatch(password)) {
+    //   return "Must contain at least one special character";
+    // }
     return 'ok';
   }
 

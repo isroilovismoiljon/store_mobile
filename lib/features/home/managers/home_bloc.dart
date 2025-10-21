@@ -36,6 +36,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
     on<HomeEventGetSavedProducts>(_getSavedProducts);
     add(HomeEventGetSavedProducts());
+    on<HomeEventGetSearchProducts>(_getSearchProducts);
   }
 
   Future<void> _getCategories(HomeEventGetCategories events, Emitter<HomeState> emit) async {
@@ -62,6 +63,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       },
       (value) {
         emit(state.copyWith(statusProducts: Status.success, errorMessageProducts: null, products: value));
+      },
+    );
+  }
+
+  Future<void> _getSearchProducts(HomeEventGetSearchProducts events, Emitter<HomeState> emit) async {
+    emit(state.copyWith(statusSearch: Status.loading, errorMessageSearch: null));
+    final result = await _productRepository.getProducts({'Title': events.title});
+    result.fold(
+      (error) {
+        emit(state.copyWith(statusSearch: Status.error, errorMessageSearch: error.toString()));
+      },
+      (value) {
+        emit(state.copyWith(statusSearch: Status.success, errorMessageSearch: null, searchItems: value));
       },
     );
   }

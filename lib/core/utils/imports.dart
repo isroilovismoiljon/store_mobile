@@ -37,4 +37,3 @@ export 'package:store_mobile/data/models/auth/register_model.dart';
 export 'package:store_mobile/data/models/auth/login_model.dart';
 export 'package:store_mobile/data/repositories/authentication_repository.dart';
 export 'package:store_mobile/features/common/managers/theme_view_model.dart';
-

@@ -1,4 +1,8 @@
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_mobile/core/constants/status.dart';
+import 'package:store_mobile/features/auth/managers/register/register_bloc.dart';
+import 'package:store_mobile/features/auth/managers/register/register_event.dart';
+import 'package:store_mobile/features/auth/managers/register/register_state.dart';
 
 import '../../../core/utils/imports.dart';
 
@@ -68,15 +72,31 @@ class _SignUpPageState extends State<SignUpPage> {
                 },
               ),
               SignUpRichText(),
-              CustomButton(
-                title: 'Create an Account',
-                onPressed: () {isValidFullName && isValidEmail && isValidPassword
-                    ? context.go(Routes.login)
-                : null;
-                },
-                buttonColor: isValidFullName && isValidEmail && isValidPassword
-                    ? Colors.black
-                    : Theme.of(context).colorScheme.secondary,
+              BlocBuilder<RegisterBloc, RegisterState>(
+                builder: (context, state) {
+                  return CustomButton(
+                    title: 'Create an Account',
+                    onPressed: () {
+                      isValidFullName && isValidEmail && isValidPassword
+                          ? {
+                              context.read<RegisterBloc>().add(
+                                RegisterRequestEvent(
+                                  model: RegisterModel(
+                                    fullName: fullNameController.text,
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  ),
+                                ),
+                              ),
+                            if (state.statusRegister == Status.success) {
+                              context.go(Routes.home),
+                            }
+                            }
+                          : null;
+                    },
+                    buttonColor: isValidFullName && isValidEmail && isValidPassword ? Colors.black : Theme.of(context).colorScheme.secondary,
+                  );
+                }
               ),
               OrWithDivider(),
               CustomButton(
@@ -95,10 +115,13 @@ class _SignUpPageState extends State<SignUpPage> {
                 icon: AppIcons.logoFacebook,
                 isRightIcon: false,
               ),
-              SizedBox(height: 50.h,),
+              SizedBox(
+                height: 50.h,
+              ),
               BottomRichText(
                 firstText: "Already have an account? ",
-                secondText: "Log In", routePage: Routes.login,
+                secondText: "Log In",
+                routePage: Routes.login,
               ),
             ],
           ),

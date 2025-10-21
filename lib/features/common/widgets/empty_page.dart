@@ -19,14 +19,14 @@ class EmptyPage extends StatelessWidget {
         spacing: 12.h,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 100.h),
+          // SizedBox(height: 50.h),
           SvgPicture.asset(
             icon,
             width: 64.w,
             height: 64.h,
           ),
           SizedBox(
-            height: 12.h,
+            height: 10.h,
           ),
           Text(
             title,

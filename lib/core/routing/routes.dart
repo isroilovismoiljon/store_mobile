@@ -22,4 +22,5 @@ class Routes {
   static const myDetails = '/my-details';
   static const newAddress = '/new-address';
   static const faqs = '/faqs';
+  static const search = '/search';
 }

@@ -9,7 +9,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState>{
   final AuthenticationRepository _authenticationRepository;
   LoginBloc({required AuthenticationRepository authenticationRepository}) :
         _authenticationRepository = authenticationRepository,
-        super(LoginState.initial());
+        super(LoginState.initial()){
+    on<LoginRequestEvent>(_login);
+  }
   
   Future<void> _login(LoginRequestEvent event, Emitter<LoginState> emit)async{
     emit(state.copyWith(statusLogin: Status.loading));

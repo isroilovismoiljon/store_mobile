@@ -13,6 +13,9 @@ class HomeState extends Equatable {
   final List<ProductModel> savedProducts;
   final Status statusSavedProducts;
   final String? errorMessageSavedProducts;
+  final List<ProductModel> searchItems;
+  final Status statusSearch;
+  final String? errorMessageSearch;
   final Status statusLike;
   final String? errorMessageLike;
 
@@ -28,6 +31,9 @@ class HomeState extends Equatable {
     required this.savedProducts,
     required this.statusSavedProducts,
     required this.errorMessageSavedProducts,
+    required this.searchItems,
+    required this.statusSearch,
+    required this.errorMessageSearch,
   });
 
   HomeState copyWith({
@@ -40,6 +46,10 @@ class HomeState extends Equatable {
     List<ProductModel>? savedProducts,
     Status? statusSavedProducts,
     String? errorMessageSavedProducts,
+
+    List<ProductModel>? searchItems,
+    Status? statusSearch,
+    String? errorMessageSearch,
     Status? statusLike,
     String? errorMessageLike,
   }) => HomeState(
@@ -54,6 +64,9 @@ class HomeState extends Equatable {
     savedProducts: savedProducts ?? this.savedProducts,
     statusSavedProducts: statusSavedProducts ?? this.statusSavedProducts,
     errorMessageSavedProducts: errorMessageSavedProducts ?? this.errorMessageSavedProducts,
+    searchItems: searchItems ?? this.searchItems,
+    statusSearch: statusSearch ?? this.statusSearch,
+    errorMessageSearch: errorMessageSearch ?? this.errorMessageSearch,
   );
 
   factory HomeState.initial() => HomeState(
@@ -68,6 +81,9 @@ class HomeState extends Equatable {
     savedProducts: [],
     statusSavedProducts: Status.idle,
     errorMessageSavedProducts: null,
+    searchItems: [],
+    statusSearch: Status.idle,
+    errorMessageSearch: null,
   );
 
   @override
@@ -83,5 +99,8 @@ class HomeState extends Equatable {
     savedProducts,
     statusSavedProducts,
     errorMessageSavedProducts,
+    searchItems,
+    statusSearch,
+    errorMessageSearch
   ];
 }
